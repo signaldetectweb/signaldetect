@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+        }
+        #chart:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // Base64 디코딩 함수
+        function decodeBase64(base64) {
+            return decodeURIComponent(
+                atob(base64)
+                    .split('')
+                    .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                    .join('')
+            );
+        }
+
+        // JSON 파일에서 Base64로 암호화된 데이터 가져오기
+        fetch('crypto.json')
+            .then(response => response.text()) // 파일 내용을 텍스트로 가져옵니다 (Base64 형식).
+            .then(base64Data => {
+                // Base64 데이터를 디코딩하여 JSON으로 파싱
+                const jsonData = JSON.parse(decodeBase64(base64Data));
+
+                // 날짜, BTC 잔액, USD 잔액을 배열로 분리
+                jsonData.sort((a, b) => new Date(a.day) - new Date(b.day));
+                let days = jsonData.map(entry => entry.day);
+                let btcBalances = jsonData.map(entry => entry.BTC_Balance);
+                let usdBalances = jsonData.map(entry => entry.USD_Balance);
+
+                var options = {
+                    chart: {
+                        type: 'line',
+                        height: '100%',
+                        width: '100%',
+                        background: '#000000',
+                        toolbar: {
+                            show: true,
+                            tools: {
+                                zoom: true,
+                                zoomin: true,
+                                zoomout: true,
+                                pan: true,
+                                reset: false
+                            },
+                            autoSelected: 'pan'
+                        }
+                    },
+                    series: [{
+                        name: 'BTC 잔액',
+                        type: 'line',
+                        data: btcBalances
+                    }, {
+                        name: 'USD 잔액',
+                        type: 'line',
+                        data: usdBalances,
+                        yaxis: 1
+                    }],
+                    xaxis: {
+                        categories: days,
+                        type: 'datetime',
+                        labels: {
+                            format: 'yyyy-MM-dd',
+                            style: {
+                                colors: '#FFFFFF',
+                                fontSize: '20px'
+                            }
+                        },
+                        axisBorder: {
+                            color: '#FFFFFF'
+                        },
+                        axisTicks: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    yaxis: [{
+                        labels: {
+                            formatter: function (value) {
+                                return value.toFixed(1);
+                            },
+                            style: {
+                                colors: '#FFFFFF',
+                                fontSize: '20px'
+                            }
+                        }
+                    }, {
+                        opposite: true,
+                        labels: {
+                            formatter: function (value) {
+                                return value.toFixed(1);
+                            },
+                            style: {
+                                colors: '#FFFFFF',
+                                fontSize: '20px'
+                            }
+                        }
+                    }],
+                    grid: {
+                        borderColor: '#444444'
+                    },
+                    tooltip: {
+                        enabled: true,
+                        shared: true,
+                        intersect: false,
+                        theme: 'dark',
+                        x: {
+                            format: 'yyyy-MM-dd'
+                        },
+                        style: {
+                            fontSize: '20px'
+                        }
+                    },
+                    legend: {
+                        labels: {
+                            colors: '#FFFFFF',
+                            fontSize: '20px'
+                        }
+                    }
+                };
+
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
