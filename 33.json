@@ -1,0 +1,758 @@
+[
+    {
+        "Date": "2024-09-01",
+        "Total_Active_Addresses": 12621029
+    },
+    {
+        "Date": "2024-08-01",
+        "Total_Active_Addresses": 12912298
+    },
+    {
+        "Date": "2024-07-01",
+        "Total_Active_Addresses": 13318530
+    },
+    {
+        "Date": "2024-06-01",
+        "Total_Active_Addresses": 11546149
+    },
+    {
+        "Date": "2024-05-01",
+        "Total_Active_Addresses": 12322393
+    },
+    {
+        "Date": "2024-04-01",
+        "Total_Active_Addresses": 14620101
+    },
+    {
+        "Date": "2024-03-01",
+        "Total_Active_Addresses": 17326730
+    },
+    {
+        "Date": "2024-02-01",
+        "Total_Active_Addresses": 15952981
+    },
+    {
+        "Date": "2024-01-01",
+        "Total_Active_Addresses": 17568164
+    },
+    {
+        "Date": "2023-12-01",
+        "Total_Active_Addresses": 17024893
+    },
+    {
+        "Date": "2023-11-01",
+        "Total_Active_Addresses": 19690141
+    },
+    {
+        "Date": "2023-10-01",
+        "Total_Active_Addresses": 17919078
+    },
+    {
+        "Date": "2023-09-01",
+        "Total_Active_Addresses": 20174225
+    },
+    {
+        "Date": "2023-08-01",
+        "Total_Active_Addresses": 18593715
+    },
+    {
+        "Date": "2023-07-01",
+        "Total_Active_Addresses": 18977837
+    },
+    {
+        "Date": "2023-06-01",
+        "Total_Active_Addresses": 17568061
+    },
+    {
+        "Date": "2023-05-01",
+        "Total_Active_Addresses": 15577011
+    },
+    {
+        "Date": "2023-04-01",
+        "Total_Active_Addresses": 17535882
+    },
+    {
+        "Date": "2023-03-01",
+        "Total_Active_Addresses": 18121464
+    },
+    {
+        "Date": "2023-02-01",
+        "Total_Active_Addresses": 16178531
+    },
+    {
+        "Date": "2023-01-01",
+        "Total_Active_Addresses": 17555637
+    },
+    {
+        "Date": "2022-12-01",
+        "Total_Active_Addresses": 17096298
+    },
+    {
+        "Date": "2022-11-01",
+        "Total_Active_Addresses": 17338092
+    },
+    {
+        "Date": "2022-10-01",
+        "Total_Active_Addresses": 16387788
+    },
+    {
+        "Date": "2022-09-01",
+        "Total_Active_Addresses": 15998675
+    },
+    {
+        "Date": "2022-08-01",
+        "Total_Active_Addresses": 16303756
+    },
+    {
+        "Date": "2022-07-01",
+        "Total_Active_Addresses": 15479528
+    },
+    {
+        "Date": "2022-06-01",
+        "Total_Active_Addresses": 15777004
+    },
+    {
+        "Date": "2022-05-01",
+        "Total_Active_Addresses": 16996321
+    },
+    {
+        "Date": "2022-04-01",
+        "Total_Active_Addresses": 16353537
+    },
+    {
+        "Date": "2022-03-01",
+        "Total_Active_Addresses": 17120305
+    },
+    {
+        "Date": "2022-02-01",
+        "Total_Active_Addresses": 15603051
+    },
+    {
+        "Date": "2022-01-01",
+        "Total_Active_Addresses": 16595531
+    },
+    {
+        "Date": "2021-12-01",
+        "Total_Active_Addresses": 17792336
+    },
+    {
+        "Date": "2021-11-01",
+        "Total_Active_Addresses": 17750125
+    },
+    {
+        "Date": "2021-10-01",
+        "Total_Active_Addresses": 18318279
+    },
+    {
+        "Date": "2021-09-01",
+        "Total_Active_Addresses": 16422488
+    },
+    {
+        "Date": "2021-08-01",
+        "Total_Active_Addresses": 16307310
+    },
+    {
+        "Date": "2021-07-01",
+        "Total_Active_Addresses": 15453317
+    },
+    {
+        "Date": "2021-06-01",
+        "Total_Active_Addresses": 15640716
+    },
+    {
+        "Date": "2021-05-01",
+        "Total_Active_Addresses": 20239384
+    },
+    {
+        "Date": "2021-04-01",
+        "Total_Active_Addresses": 20133650
+    },
+    {
+        "Date": "2021-03-01",
+        "Total_Active_Addresses": 21768373
+    },
+    {
+        "Date": "2021-02-01",
+        "Total_Active_Addresses": 20267669
+    },
+    {
+        "Date": "2021-01-01",
+        "Total_Active_Addresses": 22338813
+    },
+    {
+        "Date": "2020-12-01",
+        "Total_Active_Addresses": 20842726
+    },
+    {
+        "Date": "2020-11-01",
+        "Total_Active_Addresses": 19593389
+    },
+    {
+        "Date": "2020-10-01",
+        "Total_Active_Addresses": 18413588
+    },
+    {
+        "Date": "2020-09-01",
+        "Total_Active_Addresses": 18294571
+    },
+    {
+        "Date": "2020-08-01",
+        "Total_Active_Addresses": 19013343
+    },
+    {
+        "Date": "2020-07-01",
+        "Total_Active_Addresses": 18704182
+    },
+    {
+        "Date": "2020-06-01",
+        "Total_Active_Addresses": 16768234
+    },
+    {
+        "Date": "2020-05-01",
+        "Total_Active_Addresses": 17702055
+    },
+    {
+        "Date": "2020-04-01",
+        "Total_Active_Addresses": 15743056
+    },
+    {
+        "Date": "2020-03-01",
+        "Total_Active_Addresses": 14776145
+    },
+    {
+        "Date": "2020-02-01",
+        "Total_Active_Addresses": 14579721
+    },
+    {
+        "Date": "2020-01-01",
+        "Total_Active_Addresses": 14488687
+    },
+    {
+        "Date": "2019-12-01",
+        "Total_Active_Addresses": 14235117
+    },
+    {
+        "Date": "2019-11-01",
+        "Total_Active_Addresses": 13856816
+    },
+    {
+        "Date": "2019-10-01",
+        "Total_Active_Addresses": 13745929
+    },
+    {
+        "Date": "2019-09-01",
+        "Total_Active_Addresses": 13758907
+    },
+    {
+        "Date": "2019-08-01",
+        "Total_Active_Addresses": 14063877
+    },
+    {
+        "Date": "2019-07-01",
+        "Total_Active_Addresses": 14317925
+    },
+    {
+        "Date": "2019-06-01",
+        "Total_Active_Addresses": 15726798
+    },
+    {
+        "Date": "2019-05-01",
+        "Total_Active_Addresses": 15637408
+    },
+    {
+        "Date": "2019-04-01",
+        "Total_Active_Addresses": 14058122
+    },
+    {
+        "Date": "2019-03-01",
+        "Total_Active_Addresses": 13375795
+    },
+    {
+        "Date": "2019-02-01",
+        "Total_Active_Addresses": 11727535
+    },
+    {
+        "Date": "2019-01-01",
+        "Total_Active_Addresses": 11674271
+    },
+    {
+        "Date": "2018-12-01",
+        "Total_Active_Addresses": 11896124
+    },
+    {
+        "Date": "2018-11-01",
+        "Total_Active_Addresses": 12442161
+    },
+    {
+        "Date": "2018-10-01",
+        "Total_Active_Addresses": 12844758
+    },
+    {
+        "Date": "2018-09-01",
+        "Total_Active_Addresses": 11781650
+    },
+    {
+        "Date": "2018-08-01",
+        "Total_Active_Addresses": 12158804
+    },
+    {
+        "Date": "2018-07-01",
+        "Total_Active_Addresses": 12882940
+    },
+    {
+        "Date": "2018-06-01",
+        "Total_Active_Addresses": 10958120
+    },
+    {
+        "Date": "2018-05-01",
+        "Total_Active_Addresses": 11861150
+    },
+    {
+        "Date": "2018-04-01",
+        "Total_Active_Addresses": 11320052
+    },
+    {
+        "Date": "2018-03-01",
+        "Total_Active_Addresses": 14296644
+    },
+    {
+        "Date": "2018-02-01",
+        "Total_Active_Addresses": 14758855
+    },
+    {
+        "Date": "2018-01-01",
+        "Total_Active_Addresses": 19668543
+    },
+    {
+        "Date": "2017-12-01",
+        "Total_Active_Addresses": 21637595
+    },
+    {
+        "Date": "2017-11-01",
+        "Total_Active_Addresses": 17338884
+    },
+    {
+        "Date": "2017-10-01",
+        "Total_Active_Addresses": 15835466
+    },
+    {
+        "Date": "2017-09-01",
+        "Total_Active_Addresses": 13486557
+    },
+    {
+        "Date": "2017-08-01",
+        "Total_Active_Addresses": 13839034
+    },
+    {
+        "Date": "2017-07-01",
+        "Total_Active_Addresses": 13375134
+    },
+    {
+        "Date": "2017-06-01",
+        "Total_Active_Addresses": 14058151
+    },
+    {
+        "Date": "2017-05-01",
+        "Total_Active_Addresses": 15527117
+    },
+    {
+        "Date": "2017-04-01",
+        "Total_Active_Addresses": 12958387
+    },
+    {
+        "Date": "2017-03-01",
+        "Total_Active_Addresses": 13235897
+    },
+    {
+        "Date": "2017-02-01",
+        "Total_Active_Addresses": 11896735
+    },
+    {
+        "Date": "2017-01-01",
+        "Total_Active_Addresses": 12599112
+    },
+    {
+        "Date": "2016-12-01",
+        "Total_Active_Addresses": 12609656
+    },
+    {
+        "Date": "2016-11-01",
+        "Total_Active_Addresses": 11498755
+    },
+    {
+        "Date": "2016-10-01",
+        "Total_Active_Addresses": 10794592
+    },
+    {
+        "Date": "2016-09-01",
+        "Total_Active_Addresses": 9253615
+    },
+    {
+        "Date": "2016-08-01",
+        "Total_Active_Addresses": 9037129
+    },
+    {
+        "Date": "2016-07-01",
+        "Total_Active_Addresses": 8359611
+    },
+    {
+        "Date": "2016-06-01",
+        "Total_Active_Addresses": 8739922
+    },
+    {
+        "Date": "2016-05-01",
+        "Total_Active_Addresses": 8081807
+    },
+    {
+        "Date": "2016-04-01",
+        "Total_Active_Addresses": 8095873
+    },
+    {
+        "Date": "2016-03-01",
+        "Total_Active_Addresses": 8653236
+    },
+    {
+        "Date": "2016-02-01",
+        "Total_Active_Addresses": 9144750
+    },
+    {
+        "Date": "2016-01-01",
+        "Total_Active_Addresses": 8687286
+    },
+    {
+        "Date": "2015-12-01",
+        "Total_Active_Addresses": 8254954
+    },
+    {
+        "Date": "2015-11-01",
+        "Total_Active_Addresses": 6857379
+    },
+    {
+        "Date": "2015-10-01",
+        "Total_Active_Addresses": 6092267
+    },
+    {
+        "Date": "2015-09-01",
+        "Total_Active_Addresses": 5783442
+    },
+    {
+        "Date": "2015-08-01",
+        "Total_Active_Addresses": 5392668
+    },
+    {
+        "Date": "2015-07-01",
+        "Total_Active_Addresses": 5760344
+    },
+    {
+        "Date": "2015-06-01",
+        "Total_Active_Addresses": 5311718
+    },
+    {
+        "Date": "2015-05-01",
+        "Total_Active_Addresses": 4769431
+    },
+    {
+        "Date": "2015-04-01",
+        "Total_Active_Addresses": 4533989
+    },
+    {
+        "Date": "2015-03-01",
+        "Total_Active_Addresses": 4565414
+    },
+    {
+        "Date": "2015-02-01",
+        "Total_Active_Addresses": 4154221
+    },
+    {
+        "Date": "2015-01-01",
+        "Total_Active_Addresses": 4431790
+    },
+    {
+        "Date": "2014-12-01",
+        "Total_Active_Addresses": 4310692
+    },
+    {
+        "Date": "2014-11-01",
+        "Total_Active_Addresses": 3946663
+    },
+    {
+        "Date": "2014-10-01",
+        "Total_Active_Addresses": 3866492
+    },
+    {
+        "Date": "2014-09-01",
+        "Total_Active_Addresses": 3589230
+    },
+    {
+        "Date": "2014-08-01",
+        "Total_Active_Addresses": 3482715
+    },
+    {
+        "Date": "2014-07-01",
+        "Total_Active_Addresses": 3284826
+    },
+    {
+        "Date": "2014-06-01",
+        "Total_Active_Addresses": 3081615
+    },
+    {
+        "Date": "2014-05-01",
+        "Total_Active_Addresses": 3020177
+    },
+    {
+        "Date": "2014-04-01",
+        "Total_Active_Addresses": 3101088
+    },
+    {
+        "Date": "2014-03-01",
+        "Total_Active_Addresses": 3369070
+    },
+    {
+        "Date": "2014-02-01",
+        "Total_Active_Addresses": 2895149
+    },
+    {
+        "Date": "2014-01-01",
+        "Total_Active_Addresses": 2545046
+    },
+    {
+        "Date": "2013-12-01",
+        "Total_Active_Addresses": 2861767
+    },
+    {
+        "Date": "2013-11-01",
+        "Total_Active_Addresses": 2689034
+    },
+    {
+        "Date": "2013-10-01",
+        "Total_Active_Addresses": 1691051
+    },
+    {
+        "Date": "2013-09-01",
+        "Total_Active_Addresses": 1380101
+    },
+    {
+        "Date": "2013-08-01",
+        "Total_Active_Addresses": 1630274
+    },
+    {
+        "Date": "2013-07-01",
+        "Total_Active_Addresses": 1246625
+    },
+    {
+        "Date": "2013-06-01",
+        "Total_Active_Addresses": 1180011
+    },
+    {
+        "Date": "2013-05-01",
+        "Total_Active_Addresses": 1410309
+    },
+    {
+        "Date": "2013-04-01",
+        "Total_Active_Addresses": 1676811
+    },
+    {
+        "Date": "2013-03-01",
+        "Total_Active_Addresses": 1207060
+    },
+    {
+        "Date": "2013-02-01",
+        "Total_Active_Addresses": 985665
+    },
+    {
+        "Date": "2013-01-01",
+        "Total_Active_Addresses": 993065
+    },
+    {
+        "Date": "2012-12-01",
+        "Total_Active_Addresses": 781022
+    },
+    {
+        "Date": "2012-11-01",
+        "Total_Active_Addresses": 703559
+    },
+    {
+        "Date": "2012-10-01",
+        "Total_Active_Addresses": 791863
+    },
+    {
+        "Date": "2012-09-01",
+        "Total_Active_Addresses": 732353
+    },
+    {
+        "Date": "2012-08-01",
+        "Total_Active_Addresses": 888291
+    },
+    {
+        "Date": "2012-07-01",
+        "Total_Active_Addresses": 716465
+    },
+    {
+        "Date": "2012-06-01",
+        "Total_Active_Addresses": 680085
+    },
+    {
+        "Date": "2012-05-01",
+        "Total_Active_Addresses": 512150
+    },
+    {
+        "Date": "2012-04-01",
+        "Total_Active_Addresses": 279863
+    },
+    {
+        "Date": "2012-03-01",
+        "Total_Active_Addresses": 251855
+    },
+    {
+        "Date": "2012-02-01",
+        "Total_Active_Addresses": 245045
+    },
+    {
+        "Date": "2012-01-01",
+        "Total_Active_Addresses": 232395
+    },
+    {
+        "Date": "2011-12-01",
+        "Total_Active_Addresses": 194949
+    },
+    {
+        "Date": "2011-11-01",
+        "Total_Active_Addresses": 219675
+    },
+    {
+        "Date": "2011-10-01",
+        "Total_Active_Addresses": 236669
+    },
+    {
+        "Date": "2011-09-01",
+        "Total_Active_Addresses": 312799
+    },
+    {
+        "Date": "2011-08-01",
+        "Total_Active_Addresses": 422811
+    },
+    {
+        "Date": "2011-07-01",
+        "Total_Active_Addresses": 525225
+    },
+    {
+        "Date": "2011-06-01",
+        "Total_Active_Addresses": 451548
+    },
+    {
+        "Date": "2011-05-01",
+        "Total_Active_Addresses": 193258
+    },
+    {
+        "Date": "2011-04-01",
+        "Total_Active_Addresses": 92345
+    },
+    {
+        "Date": "2011-03-01",
+        "Total_Active_Addresses": 86081
+    },
+    {
+        "Date": "2011-02-01",
+        "Total_Active_Addresses": 55080
+    },
+    {
+        "Date": "2011-01-01",
+        "Total_Active_Addresses": 31126
+    },
+    {
+        "Date": "2010-12-01",
+        "Total_Active_Addresses": 16592
+    },
+    {
+        "Date": "2010-11-01",
+        "Total_Active_Addresses": 14974
+    },
+    {
+        "Date": "2010-10-01",
+        "Total_Active_Addresses": 11455
+    },
+    {
+        "Date": "2010-09-01",
+        "Total_Active_Addresses": 8592
+    },
+    {
+        "Date": "2010-08-01",
+        "Total_Active_Addresses": 6707
+    },
+    {
+        "Date": "2010-07-01",
+        "Total_Active_Addresses": 17393
+    },
+    {
+        "Date": "2010-06-01",
+        "Total_Active_Addresses": 817
+    },
+    {
+        "Date": "2010-05-01",
+        "Total_Active_Addresses": 324
+    },
+    {
+        "Date": "2010-04-01",
+        "Total_Active_Addresses": 3405
+    },
+    {
+        "Date": "2010-03-01",
+        "Total_Active_Addresses": 57
+    },
+    {
+        "Date": "2010-02-01",
+        "Total_Active_Addresses": 47
+    },
+    {
+        "Date": "2010-01-01",
+        "Total_Active_Addresses": 17
+    },
+    {
+        "Date": "2009-12-01",
+        "Total_Active_Addresses": 18
+    },
+    {
+        "Date": "2009-11-01",
+        "Total_Active_Addresses": 6
+    },
+    {
+        "Date": "2009-10-01",
+        "Total_Active_Addresses": 7
+    },
+    {
+        "Date": "2009-09-01",
+        "Total_Active_Addresses": 3
+    },
+    {
+        "Date": "2009-08-01",
+        "Total_Active_Addresses": 3
+    },
+    {
+        "Date": "2009-07-01",
+        "Total_Active_Addresses": 5
+    },
+    {
+        "Date": "2009-06-01",
+        "Total_Active_Addresses": 4
+    },
+    {
+        "Date": "2009-05-01",
+        "Total_Active_Addresses": 8
+    },
+    {
+        "Date": "2009-04-01",
+        "Total_Active_Addresses": 6
+    },
+    {
+        "Date": "2009-03-01",
+        "Total_Active_Addresses": 2
+    },
+    {
+        "Date": "2009-02-01",
+        "Total_Active_Addresses": 8
+    },
+    {
+        "Date": "2009-01-01",
+        "Total_Active_Addresses": 2
+    }
+]
