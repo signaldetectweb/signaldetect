@@ -25,23 +25,22 @@
     <div id="chart"></div>
 
     <script>
-        async function fetchData() {
-            const response = await fetch('21.json'); // Change to 5.json
-            const base64Data = await response.text(); // Get Base64 encoded string from the file
+        async function 가져오기() {
+            const 응답 = await fetch('21.json'); // Change to 5.json
+            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
             const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            return jsonData;
+        }
 
-            const seriesData = jsonData
+        async function renderChart() {
+            const data = await 가져오기();
+
+            const seriesData = data
                 .map(entry => ({
                     x: new Date(entry.day),
                     y: parseFloat(entry.value.toFixed(1))
                 }))
                 .sort((a, b) => a.x - b.x);
-
-            return seriesData;
-        }
-
-        async function renderChart() {
-            const seriesData = await fetchData();
 
             var options = {
                 chart: {
