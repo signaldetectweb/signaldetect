@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexCharts 예제</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+        }
+        #chart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        async function fetchData() {
+            const response = await fetch('12.json');
+            const base64Data = await response.text(); // Base64 데이터 읽기
+            const decodedData = atob(base64Data); // Base64 디코딩
+            const jsonData = JSON.parse(decodedData); // 디코딩된 데이터를 JSON으로 변환
+            return jsonData;
+        }
+
+        async function renderChart() {
+            const data = await fetchData();
+            const filteredData = data.filter(item => item.amount_usd_net_flow !== null);
+            const dateWiseData = {};
+            filteredData.forEach(item => {
+                const date = item.time.split(" ")[0];
+                if (!dateWiseData[date]) {
+                    dateWiseData[date] = item.amount_usd_net_flow;
+                }
+            });
+
+            const seriesData = Object.keys(dateWiseData).map(date => ({
+                x: date,
+                y: dateWiseData[date]
+            }));
+
+            var options = {
+                chart: {
+                    type: 'bar',
+                    height: '100%',
+                    width: '100%',
+                    background: '#000',
+                    toolbar: {
+                        show: true,
+                        tools: {
+                            download: false, // 다운로드 버튼 제거
+                            selection: true,
+                            zoom: true,
+                            zoomin: true,
+                            zoomout: true,
+                            pan: true,
+                            reset: true
+                        }
+                    },
+                    animations: {
+                        enabled: false
+                    }
+                },
+                grid: {
+                    padding: {
+                        left: 40,
+                        bottom: 30
+                    }
+                },
+                series: [{
+                    name: '금액 흐름(USD)',
+                    data: seriesData
+                }],
+                colors: ['#ffffff'],
+                xaxis: {
+                    type: 'datetime',
+                    title: {
+                        text: '' // 날짜 텍스트 제거
+                    },
+                    labels: {
+                        rotate: -45,
+                        style: {
+                            colors: '#FFF',
+                            fontSize: '23px'
+                        },
+                        formatter: function(value) {
+                            const date = new Date(value);
+                            const year = date.getFullYear();
+                            const month = String(date.getMonth() + 1).padStart(2, '0');
+                            const day = String(date.getDate()).padStart(2, '0');
+                            return `${year}-${month}-${day}`;
+                        }
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: '' // 금액 흐름(USD) 텍스트 제거
+                    },
+                    labels: {
+                        formatter: function (val) {
+                            return val.toLocaleString() + " USD"; // 숫자 끝까지 표시
+                        },
+                        style: {
+                            colors: '#FFF',
+                            fontSize: '18px' // 폰트 크기 약간 줄임
+                        },
+                        offsetX: 5 // 숫자 레이블을 더 왼쪽으로 이동
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                legend: {
+                    show: false
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '20px'  // 툴팁 텍스트 크기 증가
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        renderChart();
+    </script>
+</body>
+</html>
