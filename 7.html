@@ -6,7 +6,6 @@
     <title>Issuer별 TVL 차트</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
-        /* Set the background color of the body */
         body, html {
             margin: 0;
             padding: 0;
@@ -26,11 +25,17 @@
     <div id="tvlChart"></div> <!-- ApexCharts가 그려질 div 요소 -->
 
     <script>
-        // b7.json 파일에서 데이터 가져오기
-        fetch('b7.json')
-            .then(response => response.json())
+        // Base64 데이터 가져오기 함수
+        async function 가져오기() {
+            const 응답 = await fetch('7.json'); // Change to 5.json
+            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
+            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            return jsonData;
+        }
+
+        // 차트 데이터 처리 및 렌더링
+        가져오기()
             .then(data => {
-                // JSON 데이터 처리
                 const issuers = data.map(item => item.plain_issuer);  // Issuer 이름
                 const tvlValues = data.map(item => parseFloat(item.tvl));  // TVL 값을 숫자로 변환
 
