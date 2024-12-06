@@ -26,15 +26,15 @@
     <div id="chart"></div>
 
     <script>
-        // Base64 데이터를 가져오는 함수
+        // 데이터를 가져오는 함수
         async function 가져오기() {
-            const 응답 = await fetch('17.json'); // Change to 5.json
-            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
-            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            const 응답 = await fetch('17.json'); // JSON 파일 경로를 설정하세요.
+            const base64Data = await 응답.text(); // Base64로 인코딩된 데이터를 텍스트로 가져옴
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열을 디코딩하여 JSON으로 변환
             return jsonData;
         }
 
-        // 차트 렌더링
+        // 데이터를 가져와서 차트를 생성
         가져오기()
             .then(data => {
                 // 날짜를 순서대로 정렬
