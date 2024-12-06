@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            background-color: #000000; /* Set background to black */
+            color: #FFFFFF; /* Set default text color to white for readability */
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        #chart {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // JSON 파일에서 데이터를 Base64 디코드 후 가져오는 함수
+        async function fetchData() {
+            const response = await fetch('23.json'); // 5.json 파일 경로
+            const base64Data = await response.text(); // Base64 인코딩된 문자열 가져오기
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열 디코드 후 JSON 파싱
+
+            // JSON 데이터를 ApexCharts 형식에 맞게 변환하고, 소숫점 1자리까지 반올림
+            const seriesData = jsonData.map(entry => ({
+                x: new Date(entry.day),
+                y: parseFloat(entry.value.toFixed(1)) // 소숫점 1자리까지 반올림
+            }));
+
+            // 날짜 순서대로 정렬
+            seriesData.sort((a, b) => a.x - b.x);
+
+            return seriesData;
+        }
+
+        // 차트를 렌더링하는 함수
+        async function renderChart() {
+            const seriesData = await fetchData();
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: '100%',  // Set chart height to 100% of container
+                    width: '100%',   // Set chart width to 100% of container
+                    background: '#000000',  // Set chart background to black
+                    toolbar: {
+                        tools: {
+                            download: false  // Disable download button
+                        }
+                    }
+                },
+                series: [{
+                    name: '비트코인 가치',
+                    data: seriesData  // 데이터를 차트에 적용
+                }],
+                stroke: {
+                    width: 3,
+                    colors: ['#FFFFFF']  // Set line color to white for visibility on black
+                },
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        format: 'yyyy-MM-dd',
+                        style: {
+                            colors: '#FFFFFF'  // x-axis label color
+                        }
+                    },
+                    axisBorder: {
+                        color: '#555555'  // x-axis border color
+                    },
+                    axisTicks: {
+                        color: '#555555'  // x-axis ticks color
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#FFFFFF'  // y-axis label color
+                        }
+                    },
+                    axisBorder: {
+                        color: '#555555'  // y-axis border color
+                    },
+                    axisTicks: {
+                        color: '#555555'  // y-axis ticks color
+                    }
+                },
+                grid: {
+                    borderColor: '#333333',  // grid line color
+                    strokeDashArray: 5  // dashed grid lines for better contrast
+                },
+                tooltip: {
+                    theme: 'dark',  // set tooltip to dark theme
+                    style: {
+                        fontSize: '16px',  // Increase tooltip font size
+                        color: '#FFFFFF'  // tooltip text color to white
+                    },
+                    marker: {
+                        fillColors: ['#FFFFFF']  // set marker color inside tooltip to white
+                    },
+                    background: '#222222',  // set tooltip background color to dark gray
+                    borderColor: '#555555',  // set tooltip border color to a lighter gray
+                    x: {
+                        format: 'yyyy-MM-dd'  // date format inside tooltip
+                    },
+                    y: {
+                        formatter: function(val) {
+                            return val + " BTC";  // add unit to the tooltip value for clarity
+                        }
+                    },
+                    padding: {
+                        left: 15,
+                        right: 15,
+                        top: 10,
+                        bottom: 10
+                    }
+                },
+                legend: {
+                    labels: {
+                        colors: '#FFFFFF'  // legend label color
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // 페이지가 로드되면 차트를 렌더링
+        renderChart();
+    </script>
+</body>
+</html>
