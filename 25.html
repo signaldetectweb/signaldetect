@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 일별 가치</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // Base64로 인코딩된 JSON 파일에서 데이터를 가져오는 함수
+        async function 가져오기() {
+            const 응답 = await fetch('25.json'); // Base64 인코딩된 파일 경로
+            const base64Data = await 응답.text(); // Base64 문자열로 가져옴
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열을 디코딩하여 JSON으로 변환
+            return jsonData;
+        }
+
+        // 차트를 렌더링하는 함수
+        async function renderChart() {
+            const data = await 가져오기();
+
+            // JSON 데이터를 ApexCharts 형식에 맞게 변환
+            const seriesData = data.map(entry => ({
+                x: new Date(entry.day),
+                y: parseFloat(entry.value.toFixed(1)) // 소숫점 1자리까지 반올림
+            }));
+
+            // 날짜 순서대로 정렬
+            seriesData.sort((a, b) => a.x - b.x);
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: '100%',
+                    width: '100%',
+                    background: '#000000',
+                    toolbar: {
+                        tools: {
+                            download: false
+                        }
+                    }
+                },
+                series: [{
+                    name: '비트코인 가치',
+                    data: seriesData
+                }],
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        format: 'yyyy-MM-dd',
+                        style: {
+                            colors: '#FFFFFF',
+                            fontSize: '12px'
+                        }
+                    },
+                    axisBorder: {
+                        color: '#666666'
+                    },
+                    axisTicks: {
+                        color: '#666666'
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#FFFFFF',
+                            fontSize: '12px'
+                        }
+                    },
+                    axisBorder: {
+                        color: '#666666'
+                    },
+                    axisTicks: {
+                        color: '#666666'
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    style: {
+                        fontSize: '16px',
+                        colors: ['#FFFFFF']
+                    },
+                    marker: {
+                        show: true,
+                        fillColors: ['#00E396'],
+                        size: 6
+                    },
+                    x: {
+                        format: 'yyyy-MM-dd'
+                    },
+                    y: {
+                        formatter: function(val) {
+                            return `${val.toFixed(1)} BTC`;
+                        }
+                    }
+                },
+                stroke: {
+                    width: 3,
+                    colors: ['#00E396']
+                },
+                grid: {
+                    borderColor: '#444444',
+                    strokeDashArray: 5
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // 페이지가 로드되면 차트를 렌더링
+        renderChart();
+    </script>
+</body>
+</html>
