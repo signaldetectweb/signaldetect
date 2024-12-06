@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 차트</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* 화면에 차트를 꽉 차게 설정 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            height: 100%; /* 세로 100% */
+            width: 100%; /* 가로 100% */
+            overflow: hidden; /* 스크롤바 숨김 */
+        }
+
+        #chart {
+            height: 100%; /* 차트를 화면 높이에 맞춤 */
+            width: 100%; /* 차트를 화면 너비에 맞춤 */
+        }
+
+        .apexcharts-tooltip {
+            font-size: 22px; /* 툴팁 폰트 크기 */
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // b2.json 파일을 Base64로 암호화한 데이터를 가져오는 함수
+        async function fetchData() {
+            const response = await fetch('2.json'); // 2.json 파일을 현재 위치에 두고 사용
+            const encodedData = await response.text(); // Base64로 인코딩된 데이터 가져오기
+
+            // Base64로 인코딩된 데이터를 디코딩
+            const decodedData = atob(encodedData); // Base64 디코딩
+            const data = JSON.parse(decodedData); // JSON 데이터로 파싱
+
+            // 데이터를 날짜 순으로 정렬
+            data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            // btc_usd와 global_liquidity_index 데이터를 차트 형식에 맞게 변환
+            const btcData = data.map(item => ({
+                x: new Date(item.date),
+                y: Math.round(item.btc_usd) // BTC/USD 가격을 정수로 변환
+            }));
+
+            const liquidityData = data.map(item => ({
+                x: new Date(item.date),
+                y: Math.round(item.global_liquidity_index) // 글로벌 유동성 지수를 정수로 변환
+            }));
+
+            // ApexCharts 설정
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: '100%', // 차트 높이를 화면에 맞게 설정
+                    width: '100%', // 차트 너비를 화면에 맞게 설정
+                    background: '#000', // 차트 배경을 검은색으로 설정
+                    toolbar: {
+                        tools: {
+                            download: false // 다운로드 버튼 비활성화
+                        }
+                    }
+                },
+                stroke: {
+                    width: 2, // 선 두께
+                    colors: ['#FF5733', '#1E90FF'] // BTC/USD: 주황색, 유동성 지수: 파란색
+                },
+                series: [
+                    {
+                        name: 'BTC/USD 가격',
+                        data: btcData,
+                        color: '#FF5733' // 범례와 선 색상을 주황색으로 설정
+                    },
+                    {
+                        name: '글로벌 유동성 지수',
+                        data: liquidityData,
+                        color: '#1E90FF' // 범례와 선 색상을 파란색으로 설정
+                    }
+                ],
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        style: { colors: '#FFF', fontSize: '16px' } // x축 라벨 스타일
+                    }
+                },
+                yaxis: [
+                    {
+                        labels: {
+                            style: { colors: '#FFF', fontSize: '16px' }, // 왼쪽 y축 라벨 스타일
+                            formatter: function (value) {
+                                return Math.round(value); // 값 반올림
+                            }
+                        }
+                    },
+                    {
+                        opposite: true,
+                        labels: {
+                            style: { colors: '#FFF', fontSize: '16px' }, // 오른쪽 y축 라벨 스타일
+                            formatter: function (value) {
+                                return Math.round(value); // 값 반올림
+                            }
+                        }
+                    }
+                ],
+                tooltip: {
+                    theme: 'dark', // 다크 모드 툴팁
+                    x: {
+                        formatter: function (val) {
+                            // 날짜를 yyyy-MM-dd 형식으로 표시
+                            let date = new Date(val);
+                            let year = date.getFullYear();
+                            let month = ('0' + (date.getMonth() + 1)).slice(-2); // 두 자리 월
+                            let day = ('0' + date.getDate()).slice(-2); // 두 자리 일
+                            return `${year}-${month}-${day}`;
+                        }
+                    }
+                },
+                grid: {
+                    borderColor: '#444' // 그리드 라인 색상
+                },
+                legend: {
+                    labels: {
+                        colors: ['#FF5733', '#1E90FF'], // 범례 텍스트 색상을 선 색상과 일치
+                        fontSize: '16px' // 범례 텍스트 크기
+                    }
+                }
+            };
+
+            // 차트 렌더링
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // 페이지 로드 시 데이터를 가져오고 차트를 생성
+        fetchData();
+    </script>
+</body>
+</html>
