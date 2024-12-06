@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApexCharts 비교</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            overflow: hidden; /* 스크롤바 제거 */
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        fetch('3.json') // JSON 파일 경로를 3.json으로 변경
+            .then(response => response.text())  // 파일을 텍스트로 불러옴
+            .then(base64Data => {
+                // Base64로 암호화된 데이터를 디코딩
+                const decodedData = atob(base64Data);  // atob 함수로 Base64 디코딩
+                const data = JSON.parse(decodedData);  // 디코딩된 데이터를 JSON으로 변환
+
+                const groupedData = {};
+                data.forEach(item => {
+                    if (!groupedData[item.halving]) {
+                        groupedData[item.halving] = [];
+                    }
+                    groupedData[item.halving].push(item);
+                });
+
+                Object.keys(groupedData).forEach(halving => {
+                    groupedData[halving].sort((a, b) => a.days - b.days);
+                });
+
+                const series = Object.keys(groupedData).map(halving => {
+                    return {
+                        name: halving,
+                        data: groupedData[halving].map(item => [item.days, item.indexed_performance])
+                    };
+                });
+
+                const options = {
+                    chart: {
+                        type: 'line',
+                        width: '100%',
+                        height: '100%',
+                        zoom: {
+                            enabled: false
+                        },
+                        toolbar: {
+                            show: true,
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
+                        },
+                        background: '#000000'
+                    },
+                    series: series,
+                    xaxis: {
+                        type: 'numeric',
+                        labels: {
+                            formatter: function(value) {
+                                return Math.round(value);
+                            },
+                            style: { colors: '#FFFFFF' }
+                        },
+                        axisBorder: {
+                            color: '#FFFFFF'
+                        },
+                        axisTicks: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        logarithmic: true,
+                        labels: {
+                            formatter: function(value) {
+                                return value.toFixed(0);
+                            },
+                            style: { colors: '#FFFFFF' }
+                        },
+                        axisBorder: {
+                            color: '#FFFFFF'
+                        },
+                        axisTicks: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    stroke: {
+                        width: 2,
+                        curve: 'smooth'
+                    },
+                    grid: {
+                        borderColor: '#333333'
+                    },
+                    markers: {
+                        size: 0 // 동그라미 표시를 없앰
+                    },
+                    tooltip: {
+                        enabled: false // 툴팁 비활성화
+                    },
+                    annotations: {
+                        yaxis: [
+                            {
+                                y: 1000,
+                                borderColor: '#FF0000',
+                                label: {
+                                    borderColor: '#FF0000',
+                                    style: {
+                                        color: '#fff',
+                                        background: '#FF0000'
+                                    },
+                                    text: '1000 값 기준선'
+                                }
+                            }
+                        ]
+                    },
+                    legend: {
+                        position: 'top',
+                        horizontalAlign: 'center',
+                        labels: {
+                            colors: '#FFFFFF'
+                        }
+                    }
+                };
+
+                const chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => {
+                console.error('JSON 데이터를 불러오는 중 오류 발생:', error);
+            });
+    </script>
+</body>
+</html>
