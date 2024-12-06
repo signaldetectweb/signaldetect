@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 일별 가치</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            color: white;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        
+        #chart {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        async function fetchData() {
+            const response = await fetch('21.json'); // Change to 5.json
+            const base64Data = await response.text(); // Get Base64 encoded string from the file
+            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+
+            const seriesData = jsonData
+                .map(entry => ({
+                    x: new Date(entry.day),
+                    y: parseFloat(entry.value.toFixed(1))
+                }))
+                .sort((a, b) => a.x - b.x);
+
+            return seriesData;
+        }
+
+        async function renderChart() {
+            const seriesData = await fetchData();
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: '100%',
+                    width: '100%',
+                    background: '#000000',
+                    toolbar: {
+                        tools: {
+                            download: false // Disable download button
+                        }
+                    }
+                },
+                stroke: {
+                    width: 3,
+                    colors: ['#ffcc00']
+                },
+                series: [{
+                    name: '비트코인 가치',
+                    data: seriesData
+                }],
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        style: {
+                            colors: '#ffffff'
+                        },
+                        format: 'yyyy-MM-dd'
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#ffffff'
+                        }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    style: {
+                        fontSize: '16px',
+                        fontFamily: 'Arial',
+                        background: '#333333',
+                        color: '#ffcc00'
+                    },
+                    x: {
+                        format: 'yyyy-MM-dd'
+                    },
+                    y: {
+                        formatter: value => `${value} BTC`,
+                        title: {
+                            formatter: () => '가치'
+                        }
+                    },
+                    marker: {
+                        show: true,
+                        fillColors: ['#ffcc00'],
+                    },
+                    custom: function({ series, seriesIndex, dataPointIndex, w }) {
+                        const date = new Date(w.globals.seriesX[seriesIndex][dataPointIndex]).toISOString().split('T')[0];
+                        return '<div style="padding: 10px; font-size: 16px;">' +
+                               '날짜: ' + date + '<br>' +
+                               '가치: ' + series[seriesIndex][dataPointIndex] + ' BTC</div>';
+                    }
+                },
+                grid: {
+                    borderColor: '#333333'
+                },
+                dataLabels: {
+                    enabled: false
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        renderChart();
+    </script>
+</body>
+</html>
