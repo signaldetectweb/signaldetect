@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issuer별 TVL 차트</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Set the background color of the body */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text color for contrast */
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        #tvlChart {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+        }
+    </style>
+</head>
+<body>
+    <div id="tvlChart"></div> <!-- ApexCharts가 그려질 div 요소 -->
+
+    <script>
+        // b7.json 파일에서 데이터 가져오기
+        fetch('b7.json')
+            .then(response => response.json())
+            .then(data => {
+                // JSON 데이터 처리
+                const issuers = data.map(item => item.plain_issuer);  // Issuer 이름
+                const tvlValues = data.map(item => parseFloat(item.tvl));  // TVL 값을 숫자로 변환
+
+                // ApexCharts 옵션 설정
+                const options = {
+                    series: [{
+                        name: 'TVL (비트코인 갯수)', // TVL (단위: 비트코인 갯수) 라벨 적용
+                        data: tvlValues
+                    }],
+                    chart: {
+                        type: 'bar',
+                        height: '100%', // Set chart height to 100%
+                        width: '100%',  // Set chart width to 100%
+                        background: '#000', // Set chart background to black
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '50%',
+                            endingShape: 'rounded'
+                        },
+                    },
+                    colors: ['#FFD700', '#FF6347'], // Brighter colors for contrast (e.g., Gold, Tomato)
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['#333'] // Dark stroke for visual separation
+                    },
+                    xaxis: {
+                        categories: issuers,  // x축에 Issuer 이름 적용
+                        labels: {
+                            style: {
+                                colors: '#FFD700', // Gold color for x-axis labels
+                                fontSize: '12px'
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            formatter: function (value) {
+                                return value.toLocaleString(); // y축 숫자를 10진수 형식으로 표시
+                            },
+                            style: {
+                                colors: '#FFD700' // Gold color for y-axis labels
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#333', // Dark gray grid lines
+                        strokeDashArray: 4 // Dashed lines for a cleaner look on dark background
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    tooltip: {
+                        theme: 'dark', // Dark theme for tooltip
+                        style: {
+                            fontSize: '16px', // Increase tooltip font size
+                            padding: {
+                                top: 10,
+                                left: 15,
+                                right: 15,
+                                bottom: 10
+                            }
+                        },
+                        y: {
+                            formatter: function (value) {
+                                return value.toLocaleString() + ' BTC'; // 툴팁에도 비트코인 갯수로 표시
+                            }
+                        }
+                    }
+                };
+
+                // 차트 렌더링
+                const chart = new ApexCharts(document.querySelector("#tvlChart"), options);
+                chart.render();
+            })
+            .catch(error => console.error('데이터를 가져오는 중 오류 발생:', error));
+    </script>
+</body>
+</html>
