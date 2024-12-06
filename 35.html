@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>평균 난이도 변화</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Set body background to black */
+            color: #FFFFFF; /* Set text color to white */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        #chart {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // Fetch Base64-encoded data and decode it
+        async function 가져오기() {
+            const 응답 = await fetch('35.json'); // Change to 5.json
+            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
+            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            
+            return jsonData.map(item => ({
+                x: new Date(item.date),
+                y: parseFloat(item.avgdifficulty.toFixed(1)) // Format to 1 decimal place
+            }));
+        }
+
+        // Configure ApexCharts options
+        async function createChart() {
+            const seriesData = await 가져오기();
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: '100%', // Set chart height to 100% of the container
+                    width: '100%', // Set chart width to 100% of the container
+                    background: '#000000', // Set chart background to black
+                    toolbar: {
+                        tools: {
+                            download: false // Disable download button
+                        }
+                    }
+                },
+                series: [{
+                    name: '평균 난이도',
+                    data: seriesData
+                }],
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        format: 'yyyy-MM-dd',
+                        style: { colors: '#FFFFFF' } // Set x-axis label color to white
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function (value) {
+                            return value.toFixed(1); // Format y-axis labels to 1 decimal place
+                        },
+                        style: { colors: '#FFFFFF' } // Set y-axis label color to white
+                    }
+                },
+                stroke: {
+                    colors: ['#FFFFFF'], // Set line color to white
+                    width: 2
+                },
+                tooltip: {
+                    theme: 'dark', // Dark theme for tooltip
+                    style: {
+                        fontSize: '16px', // Increase tooltip font size
+                        color: '#FFFFFF',
+                        padding: '10px' // Add padding for larger tooltip box
+                    },
+                    x: {
+                        format: 'yyyy-MM-dd'
+                    },
+                    y: {
+                        formatter: function (value) {
+                            return value.toFixed(1); // Format tooltip values to 1 decimal place
+                        }
+                    }
+                },
+                grid: {
+                    borderColor: '#333333', // Darker grid color for subtle contrast
+                    strokeDashArray: 3 // Dash style for grid lines
+                },
+                markers: {
+                    size: 0 // Disable markers
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // Call the chart creation function
+        createChart();
+    </script>
+</body>
+</html>
