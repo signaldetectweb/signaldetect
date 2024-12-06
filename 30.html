@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance 출금 금액 차트</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        #chart {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        function resizeChart() {
+            document.getElementById('chart').style.height = window.innerHeight + 'px';
+        }
+
+        window.addEventListener('resize', resizeChart);
+        resizeChart();
+
+        async function 가져오기() {
+            try {
+                const 응답 = await fetch('30.json'); // Base64 인코딩된 JSON 파일
+                if (!응답.ok) {
+                    throw new Error('네트워크 응답에 문제가 있습니다.');
+                }
+                const base64Data = await 응답.text(); // Base64 인코딩된 문자열 가져오기
+                const jsonData = JSON.parse(atob(base64Data)); // Base64 디코딩 후 JSON 파싱
+                return jsonData;
+            } catch (error) {
+                console.error('데이터를 가져오는 중 오류가 발생했습니다: ', error);
+                throw error;
+            }
+        }
+
+        가져오기()
+            .then(data => {
+                if (!Array.isArray(data)) {
+                    throw new Error('JSON 형식이 올바르지 않습니다.');
+                }
+
+                let sortedData = data.sort((a, b) => new Date(a.day) - new Date(b.day));
+                let lastOccurrences = [];
+                let seenDays = new Set();
+
+                for (let i = sortedData.length - 1; i >= 0; i--) {
+                    if (!seenDays.has(sortedData[i].day)) {
+                        lastOccurrences.push({
+                            x: sortedData[i].day,
+                            y: sortedData[i].withdraw_amount
+                        });
+                        seenDays.add(sortedData[i].day);
+                    }
+                }
+
+                lastOccurrences.reverse();
+
+                var options = {
+                    series: [{
+                        name: '출금 금액',
+                        data: lastOccurrences
+                    }],
+                    chart: {
+                        type: 'area',
+                        height: '100%',
+                        background: 'black',
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
+                        }
+                    },
+                    xaxis: {
+                        type: 'datetime',
+                        labels: {
+                            format: 'yyyy-MM-dd',
+                            style: {
+                                colors: 'lightgray'
+                            }
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: 'lightgray'
+                            },
+                            formatter: function(value) {
+                                return Math.round(value);
+                            }
+                        }
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'yyyy-MM-dd'
+                        },
+                        theme: 'dark',
+                        style: {
+                            fontSize: '14px',
+                            padding: 10
+                        },
+                        y: {
+                            formatter: function(value) {
+                                return Math.round(value);
+                            }
+                        }
+                    },
+                    fill: {
+                        type: 'solid',
+                        opacity: 0.7,
+                        colors: ['#3498db']
+                    },
+                    stroke: {
+                        width: 2,
+                        colors: ['#3498db']
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    colors: ['#3498db']
+                };
+
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => {
+                console.error('차트 데이터를 처리하는 중 오류가 발생했습니다: ', error);
+            });
+    </script>
+</body>
+</html>
