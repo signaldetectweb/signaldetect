@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 일별 가치</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Remove margin and padding to make the chart fill the screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chart"></div>
+
+    <script>
+        // JSON 파일에서 데이터를 가져오는 함수 (Base64로 인코딩된 데이터를 디코딩하여 사용)
+        async function 가져오기() {
+            const 응답 = await fetch('24.json'); // Base64로 인코딩된 5.json 파일 경로
+            const base64Data = await 응답.text(); // Base64로 인코딩된 문자열 가져오기
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열을 디코딩하여 JSON으로 변환
+            return jsonData;
+        }
+
+        // 차트를 렌더링하는 함수
+        async function renderChart() {
+            const data = await 가져오기();
+
+            // JSON 데이터를 ApexCharts 형식에 맞게 변환하고, 소숫점 1자리까지 반올림
+            const seriesData = data.map(entry => ({
+                x: new Date(entry.day),
+                y: parseFloat(entry.value.toFixed(1))  // 소숫점 1자리까지 반올림
+            }));
+
+            // 날짜 순서대로 정렬
+            seriesData.sort((a, b) => a.x - b.x);
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    width: '100%',
+                    height: '100%',
+                    background: '#000000',  // 차트 배경 색상을 검정으로 설정
+                    toolbar: {
+                        tools: {
+                            download: false  // 다운로드 비활성화
+                        }
+                    }
+                },
+                series: [{
+                    name: '비트코인 가치',
+                    data: seriesData  // 데이터를 차트에 적용
+                }],
+                stroke: {
+                    width: 3,  // 선의 두께 설정
+                    colors: ['#00FF00']  // 선 색상을 연한 초록색으로 설정
+                },
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        format: 'yyyy-MM-dd',
+                        style: {
+                            colors: '#FFFFFF'  // x축 레이블 색상 흰색
+                        }
+                    },
+                    axisBorder: {
+                        color: '#555555'  // x축 테두리 색상을 짙은 회색으로
+                    },
+                    axisTicks: {
+                        color: '#555555'  // x축 눈금 색상을 짙은 회색으로
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#FFFFFF'  // y축 레이블 색상 흰색
+                        }
+                    },
+                    axisBorder: {
+                        color: '#555555'  // y축 테두리 색상을 짙은 회색으로
+                    },
+                    axisTicks: {
+                        color: '#555555'  // y축 눈금 색상을 짙은 회색으로
+                    }
+                },
+                grid: {
+                    borderColor: '#333333'  // 그리드 라인 색상을 짙은 회색으로 설정
+                },
+                tooltip: {
+                    theme: 'dark',  // 툴팁 테마를 어둡게 설정
+                    style: {
+                        fontSize: '14px',
+                        fontFamily: 'Arial, sans-serif',
+                        color: '#FFFFFF'  // 툴팁 텍스트 색상 흰색으로
+                    },
+                    marker: {
+                        fillColors: ['#00FF00']  // 툴팁 마커 색상을 초록색으로
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return val.toFixed(2) + " BTC";  // 툴팁에 BTC 단위 추가
+                        },
+                        title: {
+                            formatter: () => '가치: '  // 툴팁 제목 "가치: "로 설정
+                        },
+                    },
+                    x: {
+                        format: 'yyyy-MM-dd'  // 날짜 형식
+                    },
+                    fillSeriesColor: false,  // 마커 색상 시리즈 색상과 독립적으로 설정
+                    background: '#1A1A1A',  // 툴팁 배경을 어두운 회색으로 설정
+                    borderColor: '#333333',  // 툴팁 경계 색상 설정
+                    borderWidth: 1  // 툴팁 경계 두께 설정
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // 페이지가 로드되면 차트를 렌더링
+        renderChart();
+    </script>
+</body>
+</html>
