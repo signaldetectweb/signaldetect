@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스택형 영역 차트 - TVL 데이터</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* 기본 스타일 */
+        body {
+            margin: 0; /* 여백 제거 */
+            padding: 0;
+            background-color: black;
+            color: white;
+            overflow: hidden; /* 스크롤 제거 */
+        }
+        #chart {
+            width: 100vw; /* 화면 너비 */
+            height: 100vh; /* 화면 높이 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 차트 컨테이너 -->
+    <div id="chart"></div>
+
+    <script>
+        // Base64로 암호화된 JSON 데이터를 복호화하여 차트를 생성하는 함수
+        async function getDataAndRenderChart() {
+            try {
+                // 13.json 파일을 불러옴
+                const response = await fetch('13.json');
+                const base64Data = await response.text(); // Base64 문자열을 텍스트로 가져옴
+
+                // Base64 복호화
+                const decodedData = atob(base64Data);
+
+                // JSON으로 파싱
+                const data = JSON.parse(decodedData);
+
+                // 발행자별 데이터를 정리
+                const seriesData = {};
+
+                data.forEach(entry => {
+                    const issuer = entry.issuer;
+                    const time = new Date(entry.time);
+                    const tvl = entry.tvl;
+
+                    if (!seriesData[issuer]) {
+                        seriesData[issuer] = [];
+                    }
+                    seriesData[issuer].push({ x: time, y: tvl });
+                });
+
+                // 각 발행자의 데이터를 시간 순서대로 정렬
+                Object.keys(seriesData).forEach(issuer => {
+                    seriesData[issuer].sort((a, b) => a.x - b.x);
+                });
+
+                // ApexCharts 시리즈 데이터 생성
+                const series = Object.keys(seriesData).map(issuer => ({
+                    name: issuer,
+                    data: seriesData[issuer]
+                }));
+
+                // 차트 옵션 설정
+                const options = {
+                    chart: {
+                        type: 'area',
+                        stacked: true,
+                        height: '100%',
+                        width: '100%',
+                        background: '#000000', // 차트 배경색 설정
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 아이콘 비활성화
+                            }
+                        }
+                    },
+                    fill: {
+                        type: 'solid',
+                        opacity: 1
+                    },
+                    colors: ['#1E90FF', '#FF6347', '#3CB371', '#FFD700', '#FF4500', '#32CD32', '#6A5ACD', '#FF69B4', '#00CED1', '#FF8C00', '#8A2BE2'],
+                    series: series,
+                    xaxis: {
+                        type: 'datetime',
+                        labels: {
+                            format: 'yyyy-MM-dd',
+                            style: { colors: '#FFFFFF' }
+                        },
+                        axisBorder: {
+                            color: '#666666'
+                        },
+                        axisTicks: {
+                            color: '#666666'
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: { colors: '#FFFFFF' }
+                        },
+                        axisBorder: {
+                            color: '#666666'
+                        },
+                        axisTicks: {
+                            color: '#666666'
+                        }
+                    },
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            colors: '#FFFFFF'
+                        },
+                        title: {
+                            text: '발행자',
+                            style: { color: '#FFFFFF' }
+                        }
+                    },
+                    tooltip: {
+                        shared: true,
+                        intersect: false,
+                        x: {
+                            format: 'yyyy-MM-dd'
+                        },
+                        theme: 'dark'
+                    },
+                    dataLabels: {
+                        enabled: false
+                    }
+                };
+
+                // 차트 렌더링
+                const chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            } catch (error) {
+                console.error('데이터를 불러오는 중 오류가 발생했습니다:', error);
+            }
+        }
+
+        // 페이지가 로드되면 차트를 생성
+        getDataAndRenderChart();
+    </script>
+
+</body>
+</html>
