@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스택형 막대 차트</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            background-color: black; /* 페이지 배경을 검정으로 설정 */
+            color: white; /* 페이지 기본 텍스트 색상 흰색 */
+            margin: 0; /* 여백 제거 */
+            overflow: hidden; /* 스크롤 제거 */
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh; /* 화면 전체를 차지하도록 설정 */
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        async function 가져오기() {
+            const 응답 = await fetch('15.json'); // Base64 인코딩된 JSON 파일 경로
+            const base64Data = await 응답.text(); // Base64 문자열을 텍스트로 가져옴
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열을 디코드하고 JSON으로 파싱
+            return jsonData;
+        }
+
+        가져오기()
+            .then(data => {
+                const categories = [...new Set(data.map(item => item.date))].sort((a, b) => new Date(a) - new Date(b));
+                const narratives = ['L1', 'Runes', 'L2', 'DEX', 'AI', 'LRT', 'Perpetuals'];
+
+                const series = narratives.map(narrative => {
+                    return {
+                        name: narrative,
+                        data: categories.map(date => {
+                            const entriesForDate = data.filter(item => item.date === date);
+                            const totalForDate = entriesForDate.reduce((sum, item) => sum + item.count, 0);
+                            const entry = entriesForDate.find(item => item.narrative === narrative);
+                            return entry ? (entry.count / totalForDate) * 100 : 0;
+                        })
+                    };
+                });
+
+                const colors = ['#FFD700', '#87CEEB', '#FF69B4', '#32CD32', '#FFA07A', '#BA55D3', '#20B2AA'];
+
+                const options = {
+                    chart: {
+                        type: 'bar',
+                        height: '100%', // 차트 높이를 100%로 설정
+                        width: '100%', // 차트 너비를 100%로 설정
+                        stacked: true,
+                        stackType: '100%',
+                        background: '#000', // 차트 배경색 검정으로 설정
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
+                        }
+                    },
+                    series: series,
+                    xaxis: {
+                        categories: categories,
+                        labels: {
+                            style: {
+                                colors: '#FFF' // x축 레이블 텍스트 색상 흰색
+                            },
+                            rotate: -45,
+                            datetimeFormatter: {
+                                year: 'yyyy',
+                                month: 'MMM'
+                            },
+                            showDuplicates: false,
+                            hideOverlappingLabels: true,
+                            trim: true,
+                        },
+                        tickAmount: Math.floor(categories.length / 6),
+                    },
+                    yaxis: {
+                        labels: {
+                            style: {
+                                colors: '#FFF' // y축 레이블 텍스트 색상 흰색
+                            },
+                            formatter: function (val) {
+                                return val.toFixed(0) + '%';
+                            }
+                        }
+                    },
+                    colors: colors,
+                    tooltip: {
+                        enabled: true,
+                        shared: true,
+                        followCursor: true,
+                        intersect: false,
+                        theme: 'dark', // 툴팁 배경을 어두운 색으로 설정
+                        style: {
+                            fontSize: '16px', // 툴팁 텍스트 크기를 키움
+                            fontFamily: 'Arial, sans-serif',
+                            colors: ['#FFF'] // 툴팁 텍스트 색상을 흰색으로 설정
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return val.toFixed(2) + "%";
+                            }
+                        },
+                        marker: {
+                            fillColors: colors // 툴팁의 데이터 포인트 마커 색상을 시리즈 색상과 일치시킴
+                        },
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                            bottom: 10 // 툴팁 내부 패딩을 추가하여 더 넉넉한 여백 제공
+                        }
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    legend: {
+                        position: 'right',
+                        offsetY: 40,
+                        labels: {
+                            colors: '#FFF' // 범례 텍스트 색상 흰색
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false
+                    }
+                };
+
+                const chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => console.error('데이터를 가져오는 중 오류가 발생했습니다:', error));
+    </script>
+</body>
+</html>
