@@ -6,14 +6,15 @@
     <title>일일 활성 주소 수</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
+        /* Ensure the chart container fills the entire viewport */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
-            color: white;
-            overflow: hidden;
+            background-color: black; /* Page background color */
+            color: white; /* Text color */
+            overflow: hidden; /* Prevent scrollbars */
         }
         #chart {
             width: 100%;
@@ -29,88 +30,74 @@
 
     <script>
         // Base64 디코딩 함수
-        function base64Decode(base64) {
-            try {
-                return decodeURIComponent(atob(base64).split('').map(function(c) {
-                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                }).join(''));
-            } catch (e) {
-                console.error('Base64 decoding failed:', e);
-                return null;
-            }
+        function decodeBase64(base64String) {
+            const decodedString = atob(base64String); // Base64 디코딩
+            return JSON.parse(decodedString); // JSON으로 파싱
         }
 
-        // 33.json 파일에서 Base64 데이터를 가져와 디코딩하는 함수
+        // 33.json 파일에서 데이터를 가져오는 함수
         async function fetchData() {
             const response = await fetch('33.json'); // JSON 파일 경로
-            const base64Data = await response.text(); // Base64 문자열 가져오기
-            const jsonData = base64Decode(base64Data); // Base64 디코딩
-            if (!jsonData) {
-                throw new Error('Failed to decode JSON data.');
-            }
-            const data = JSON.parse(jsonData); // JSON 파싱
-            
+            const base64Data = await response.text(); // Base64 데이터 가져오기
+            const decodedData = decodeBase64(base64Data); // Base64 디코딩
+           
             // 차트에 맞는 형식으로 데이터 변환
-            return data.map(item => {
+            return decodedData.map(item => {
                 return { x: item.Date, y: item.Total_Active_Addresses };
             });
         }
 
         // ApexCharts 옵션 설정
         async function createChart() {
-            try {
-                const seriesData = await fetchData();
+            const seriesData = await fetchData();
 
-                var options = {
-                    chart: {
-                        type: 'line',
-                        width: '100%',
-                        height: '100%',
-                        background: '#000000',
-                        toolbar: {
-                            tools: {
-                                download: false
-                            }
+            var options = {
+                chart: {
+                    type: 'line',
+                    width: '100%',
+                    height: '100%',
+                    background: '#000000', // Chart background color to black
+                    toolbar: {
+                        tools: {
+                            download: false // Remove the download button
                         }
-                    },
-                    series: [{
-                        name: '일일 활성 주소 수',
-                        data: seriesData
-                    }],
-                    xaxis: {
-                        type: 'datetime',
-                        labels: {
-                            style: { colors: '#FFFFFF' }
-                        }
-                    },
-                    yaxis: {
-                        labels: {
-                            style: { colors: '#FFFFFF' }
-                        }
-                    },
-                    stroke: {
-                        colors: ['#00FF00'],
-                        width: 2
-                    },
-                    tooltip: {
-                        x: {
-                            format: 'yyyy-MM-dd'
-                        },
-                        theme: 'dark'
-                    },
-                    grid: {
-                        borderColor: '#333333'
-                    },
-                    markers: {
-                        size: 0
                     }
-                };
+                },
+                series: [{
+                    name: '일일 활성 주소 수',
+                    data: seriesData // 데이터 사용
+                }],
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        style: { colors: '#FFFFFF' } // X-axis label color to white
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: { colors: '#FFFFFF' } // Y-axis label color to white
+                    }
+                },
+                stroke: {
+                    colors: ['#00FF00'], // Line color to bright green
+                    width: 2 // Line thickness
+                },
+                tooltip: {
+                    x: {
+                        format: 'yyyy-MM-dd'
+                    },
+                    theme: 'dark' // Tooltip theme to dark
+                },
+                grid: {
+                    borderColor: '#333333' // Grid line color to dark gray
+                },
+                markers: {
+                    size: 0 // Remove markers (circles) from the line
+                }
+            };
 
-                var chart = new ApexCharts(document.querySelector("#chart"), options);
-                chart.render();
-            } catch (error) {
-                console.error('Error creating chart:', error);
-            }
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
         }
 
         // 차트 생성 함수 호출
