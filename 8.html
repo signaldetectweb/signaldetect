@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테마별 연 수익률 차트</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Make chart container take up the entire screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            color: white;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        #chart {
+            height: 100%; /* Full height */
+            width: 100%; /* Full width */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chart"></div>
+    
+    <script>
+        // Fetch Base64 encoded data from 8.json and decode it
+        fetch('8.json')
+            .then(response => response.text()) // Fetch as plain text since it's Base64 encoded
+            .then(base64Data => {
+                // Decode Base64
+                const decodedData = atob(base64Data);
+                const chartData = JSON.parse(decodedData); // Parse JSON from the decoded data
+
+                // Process data into annual return percentage
+                const categories = chartData.map(data => data.narrative);
+                const seriesData = chartData.map(data => (data.ytd_perf * 100).toFixed(2)); // Convert to percentage and round to 2 decimals
+
+                // Chart options
+                const options = {
+                    chart: {
+                        type: 'bar',
+                        height: '100%', // Full height
+                        width: '100%',  // Full width
+                        background: '#000', // Set chart background to black
+                        toolbar: {
+                            tools: {
+                                download: false // Disable download button
+                            }
+                        }
+                    },
+                    series: [{
+                        name: '연 수익률 (%)',
+                        data: seriesData
+                    }],
+                    colors: ['#1E90FF', '#32CD32', '#FFA500', '#FF6347', '#9370DB', '#708090', '#20B2AA', '#9400D3'],
+                    xaxis: {
+                        categories: categories,
+                        labels: {
+                            style: { colors: Array(categories.length).fill('white') } // Set x-axis label colors to white
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            formatter: function (value) {
+                                return value + "%";
+                            },
+                            style: { colors: 'white' } // Set y-axis label color to white
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            distributed: true,
+                            borderRadius: 4,
+                            horizontal: false
+                        }
+                    },
+                    legend: {
+                        show: false
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        style: {
+                            colors: ['white'] // Set data label color to white
+                        }
+                    },
+                    tooltip: {
+                        theme: 'dark', // Use dark theme for tooltip
+                        style: {
+                            fontSize: '18px', // Increase tooltip font size
+                            color: '#fff', // Tooltip text color
+                            padding: 10 // Increase padding for a larger tooltip
+                        },
+                        y: {
+                            formatter: function(value) {
+                                return value + '%'; // Display percentage in tooltip
+                            }
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: 'white' // Set title color to white (if any title is added in the future)
+                        }
+                    }
+                };
+
+                // Render chart
+                const chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => {
+                console.error('데이터를 불러오는 중 오류가 발생했습니다:', error);
+            });
+    </script>
+</body>
+</html>
