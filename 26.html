@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 일별 가치</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Make the body and chart fill the entire screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Set background color to black */
+            color: #FFFFFF; /* Set text color to white */
+            font-family: Arial, sans-serif; /* Add a clean, sans-serif font */
+            overflow: hidden; /* Hide any overflow */
+        }
+        #chart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        async function fetchData() {
+            const response = await fetch('b26.json');
+            const data = await response.json();
+
+            const seriesData = data.map(entry => ({
+                x: new Date(entry.day),
+                y: parseFloat(entry.value.toFixed(1))
+            }));
+
+            seriesData.sort((a, b) => a.x - b.x);
+
+            return seriesData;
+        }
+
+        async function renderChart() {
+            const seriesData = await fetchData();
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    width: '100%',
+                    height: '100%',
+                    background: '#000000',
+                    toolbar: {
+                        tools: {
+                            download: false // Disable download button
+                        }
+                    }
+                },
+                series: [{
+                    name: '비트코인 가치',
+                    data: seriesData
+                }],
+                stroke: {
+                    width: 3,
+                    colors: ['#00FF00']
+                },
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        style: {
+                            colors: '#CCCCCC'
+                        },
+                        format: 'yyyy-MM-dd'
+                    },
+                    title: {
+                        text: null
+                    }
+                },
+                yaxis: {
+                    title: {
+                        text: null
+                    },
+                    labels: {
+                        style: {
+                            colors: '#CCCCCC'
+                        }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    x: {
+                        format: 'yyyy-MM-dd'
+                    },
+                    style: {
+                        fontSize: '14px'
+                    },
+                    y: {
+                        formatter: function(value) {
+                            return value + " BTC";
+                        }
+                    },
+                    itemMargin: {
+                        horizontal: 10,
+                        vertical: 5
+                    }
+                },
+                grid: {
+                    borderColor: '#333333'
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        renderChart();
+    </script>
+</body>
+</html>
