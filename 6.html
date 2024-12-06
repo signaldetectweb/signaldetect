@@ -3,113 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Base64 차트</title>
-    <!-- ApexCharts CDN -->
+    <title>ApexCharts 예제 - 날짜 한국어 표시 (년도/월만)</title>
+    <!-- ApexCharts 라이브러리 추가 -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            overflow: hidden; /* 스크롤 방지 */
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
-<body style="background-color: #000; color: #FFF; margin: 0; overflow: hidden;">
-    <div id="chart" style="width: 100vw; height: 100vh;"></div>
+<body>
+    <!-- 차트가 표시될 영역 -->
+    <div id="chart"></div>
 
+    <!-- 차트를 렌더링하는 스크립트 -->
     <script>
-        async function 가져오기() {
-            const 응답 = await fetch('6.json'); // Base64로 암호화된 JSON 파일 경로
-            const base64Data = await 응답.text(); // Base64 데이터 가져오기
-            const jsonData = JSON.parse(atob(base64Data)); // Base64 복호화 및 JSON 파싱
-            return jsonData;
-        }
+        // JSON 파일 경로
+        const jsonFilePath = '6.json';
 
-        function 중복제거(데이터) {
-            const 고유날짜 = {};
-            return 데이터.filter(항목 => {
-                const 날짜 = 항목.month.split(" ")[0];
-                if (!고유날짜[날짜]) {
-                    고유날짜[날짜] = true;
-                    return true;
-                }
-                return false;
-            });
-        }
+        // JSON 데이터를 비동기로 불러와 차트를 생성하는 함수
+        async function loadChart() {
+            try {
+                // Base64로 인코딩된 JSON 파일을 가져오기
+                const response = await fetch(jsonFilePath);
+                const base64Data = await response.text();
 
-        function 날짜정렬(데이터) {
-            return 데이터.sort((a, b) => new Date(a.month) - new Date(b.month));
-        }
+                // Base64 데이터를 디코딩하고 JSON 파싱
+                const jsonData = JSON.parse(atob(base64Data));
 
-        function 차트생성(정렬된데이터) {
-            const 월별 = 정렬된데이터.map(항목 => 
-                new Date(항목.month).toLocaleDateString('ko-KR', { year: 'numeric', month: 'short' })
-            );
-            const 볼륨달러 = 정렬된데이터.map(항목 => 항목.volume_dollar);
+                // JSON 데이터를 날짜순으로 정렬
+                let sortedData = jsonData.sort((a, b) => new Date(a.day) - new Date(b.day));
 
-            const 옵션 = {
-                chart: {
-                    type: 'line',
-                    height: '100%',
-                    width: '100%',
-                    background: '#000',
-                    foreColor: '#FFF',
-                    toolbar: {
-                        tools: {
-                            download: false
+                // JSON 데이터를 차트 형식에 맞게 변환
+                let chartData = sortedData.map(item => {
+                    return { x: new Date(item.day).getTime(), y: parseFloat(item.Volume_per_users).toFixed(2) };
+                });
+
+                // 차트 옵션 설정
+                const options = {
+                    chart: {
+                        type: 'line',
+                        width: '100%',
+                        height: '100%',
+                        background: '#000000',
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
                         }
-                    }
-                },
-                series: [{
-                    name: '볼륨 (달러)',
-                    data: 볼륨달러
-                }],
-                xaxis: {
-                    categories: 월별,
-                    labels: {
-                        style: {
-                            colors: '#FFF',
-                            fontSize: '14px'
+                    },
+                    series: [{
+                        name: '사용자당 볼륨',
+                        data: chartData
+                    }],
+                    stroke: {
+                        width: 1,
+                        colors: ['#ffffff']
+                    },
+                    xaxis: {
+                        type: 'datetime',
+                        labels: {
+                            formatter: function(value) {
+                                const date = new Date(value);
+                                return date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월';
+                            },
+                            style: {
+                                colors: '#ffffff',
+                                fontSize: '12px'
+                            }
                         }
-                    }
-                },
-                yaxis: {
-                    labels: {
-                        formatter: function (값) {
-                            return "$" + 값.toLocaleString();
+                    },
+                    yaxis: {
+                        labels: {
+                            formatter: function(value) {
+                                return value.toFixed(2);
+                            },
+                            style: {
+                                colors: '#ffffff',
+                                fontSize: '12px'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        theme: 'dark',
+                        y: {
+                            formatter: function(value) {
+                                return value.toFixed(2);
+                            }
                         },
-                        style: {
-                            colors: '#FFF',
-                            fontSize: '14px'
+                        x: {
+                            formatter: function(value) {
+                                const date = new Date(value);
+                                const year = date.getFullYear();
+                                const month = ('0' + (date.getMonth() + 1)).slice(-2);
+                                const day = ('0' + date.getDate()).slice(-2);
+                                return `${year}-${month}-${day}`;
+                            }
                         }
+                    },
+                    grid: {
+                        borderColor: '#444444'
                     }
-                },
-                tooltip: {
-                    theme: 'dark',
-                    y: {
-                        formatter: function (값) {
-                            return "$" + 값.toLocaleString();
-                        }
-                    }
-                },
-                colors: ['#00E396'],
-                grid: {
-                    borderColor: '#555',
-                },
-                stroke: {
-                    curve: 'smooth'
-                },
-                dataLabels: {
-                    enabled: false
-                }
-            };
+                };
 
-            const 차트 = new ApexCharts(document.querySelector("#chart"), 옵션);
-            차트.render();
+                // 차트를 렌더링합니다.
+                const chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            } catch (error) {
+                console.error("데이터를 로드하거나 차트를 생성하는 중 오류 발생:", error);
+            }
         }
 
-        가져오기()
-            .then(데이터 => {
-                const 필터링된데이터 = 중복제거(데이터);
-                const 정렬된데이터 = 날짜정렬(필터링된데이터);
-                차트생성(정렬된데이터);
-            })
-            .catch(error => {
-                console.error('데이터를 가져오는 중 오류 발생:', error);
-            });
+        // 차트 로드 호출
+        loadChart();
+
+        // 창 크기 변경 시 차트 크기를 다시 조정
+        window.addEventListener('resize', () => {
+            document.querySelector("#chart").style.width = `${window.innerWidth}px`;
+            document.querySelector("#chart").style.height = `${window.innerHeight}px`;
+        });
     </script>
 </body>
 </html>
