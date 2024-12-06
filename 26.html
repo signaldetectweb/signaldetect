@@ -28,8 +28,15 @@
 
     <script>
         async function fetchData() {
+            // Fetch the Base64 encoded JSON data
             const response = await fetch('26.json');
-            const data = await response.json();
+            const encodedData = await response.text();
+
+            // Decode the Base64 data
+            const decodedData = atob(encodedData);
+
+            // Parse the JSON from the decoded string
+            const data = JSON.parse(decodedData);
 
             const seriesData = data.map(entry => ({
                 x: new Date(entry.day),
