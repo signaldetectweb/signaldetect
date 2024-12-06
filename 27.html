@@ -25,10 +25,17 @@
     <div id="chart"></div>
 
     <script>
-        // JSON 파일에서 데이터를 가져오는 함수
-        async function fetchData() {
-            const response = await fetch('27.json');  // JSON 파일 경로
-            const data = await response.json();
+        // Base64로 인코딩된 JSON 데이터를 가져오는 함수
+        async function 가져오기() {
+            const 응답 = await fetch('27.json');  // Base64로 인코딩된 JSON 파일 경로
+            const base64Data = await 응답.text();  // Base64 문자열을 텍스트로 가져옴
+            const jsonData = JSON.parse(atob(base64Data));  // Base64 문자열을 디코딩 후 JSON 파싱
+            return jsonData;
+        }
+
+        // 차트를 렌더링하는 함수
+        async function renderChart() {
+            const data = await 가져오기();
 
             // JSON 데이터를 ApexCharts 형식에 맞게 변환하고, 소숫점 1자리까지 반올림
             const seriesData = data.map(entry => ({
@@ -38,13 +45,6 @@
 
             // 날짜 순서대로 정렬
             seriesData.sort((a, b) => a.x - b.x);
-
-            return seriesData;
-        }
-
-        // 차트를 렌더링하는 함수
-        async function renderChart() {
-            const seriesData = await fetchData();
 
             var options = {
                 chart: {
