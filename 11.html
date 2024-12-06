@@ -16,11 +16,11 @@
             color: white;
         }
         #chart {
-            position: absolute; /* 화면 전체를 차지하도록 설정 */
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* 너비 100% */
-            height: 100%; /* 높이 100% */
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -29,102 +29,103 @@
     <div id="chart"></div>
 
     <script>
-        // Base64로 암호화된 JSON 데이터를 디코딩하여 반환하는 함수
-        function decodeBase64(base64String) {
-            const decodedString = atob(base64String); // Base64 디코딩
-            return JSON.parse(decodedString); // JSON으로 변환
+        // 데이터를 가져오는 함수
+        async function 가져오기() {
+            const 응답 = await fetch('11.json'); // 5.json 파일을 가져옴
+            const base64Data = await 응답.text(); // Base64 인코딩된 문자열을 가져옴
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 디코딩 후 JSON 파싱
+            return jsonData;
         }
 
-        // Base64로 암호화된 JSON 데이터 (예: "11.json" 파일의 내용이 암호화되어 있다고 가정)
-        const base64EncodedJSON = "W3sibnFycmF0aXZlIjoiU2NlbmFyaW8gMSIsIm10ZF9wZXJmIjowLjY1fSx7Im5hcnJhdGl2ZSI6IlNjZW5hcmlvIDIiLCJtdGRfcGVyZiI6MC43Mn0seyJuYXJyYXRpdmUiOiJTY2VuYXJpbyAzIiwibXRkX3BlcmYiOjAuNTZ9XQ==";
+        // 데이터를 로드한 후 차트를 생성하는 함수
+        가져오기().then(data => {
+            // mtd_perf 값을 100을 곱하고 소숫점 1자리까지 남김
+            var mtdPerfData = data.map(function(item) {
+                return (item.mtd_perf * 100).toFixed(1);
+            });
 
-        // 디코딩 및 JSON 데이터 로드
-        const data = decodeBase64(base64EncodedJSON);
+            // narrative 값을 가져옴
+            var categories = data.map(function(item) {
+                return item.narrative;
+            });
 
-        // mtd_perf 값을 100을 곱하고 소숫점 1자리까지 남김
-        const mtdPerfData = data.map(function(item) {
-            return (item.mtd_perf * 100).toFixed(1);
-        });
-
-        // narrative 값을 가져옴
-        const categories = data.map(function(item) {
-            return item.narrative;
-        });
-
-        const options = {
-            chart: {
-                type: 'bar',
-                width: '100%', // 차트 너비를 100%로 설정
-                height: '100%', // 차트 높이를 100%로 설정
-                background: '#000000', // 차트 배경을 검은색으로 설정
-                toolbar: {
-                    tools: {
-                        download: false // 다운로드 버튼 제거
-                    }
-                }
-            },
-            series: [{
-                name: 'MTD 성과',
-                data: mtdPerfData
-            }],
-            xaxis: {
-                categories: categories,
-                labels: {
-                    style: {
-                        colors: '#ffffff' // X축 레이블 색상을 흰색으로 설정
-                    }
-                },
-                axisBorder: {
-                    color: '#ffffff' // X축 테두리 색상을 흰색으로 설정
-                },
-                axisTicks: {
-                    color: '#ffffff' // X축 틱 색상을 흰색으로 설정
-                }
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: '#ffffff' // Y축 레이블 색상을 흰색으로 설정
-                    }
-                },
-                axisBorder: {
-                    color: '#ffffff' // Y축 테두리 색상을 흰색으로 설정
-                },
-                axisTicks: {
-                    color: '#ffffff' // Y축 틱 색상을 흰색으로 설정
-                }
-            },
-            tooltip: {
-                theme: 'dark', // 툴팁 테마를 어둡게 설정
-                style: {
-                    fontSize: '16px', // 툴팁 글꼴 크기를 16px로 설정하여 크기 증가
-                    color: '#ffffff' // 툴팁 텍스트 색상을 흰색으로 설정
-                },
-                y: {
-                    formatter: function(value) {
-                        return value + "%"; // MTD 성과 값을 백분율로 표시
-                    },
-                    title: {
-                        formatter: function () {
-                            return 'MTD 성과: ';
-                        },
-                        style: {
-                            color: '#ffffff', // 툴팁 제목 색상을 흰색으로 설정
-                            fontSize: '16px' // 툴팁 제목 글꼴 크기 증가
+            var options = {
+                chart: {
+                    type: 'bar',
+                    width: '100%',
+                    height: '100%',
+                    background: '#000000',
+                    toolbar: {
+                        tools: {
+                            download: false
                         }
                     }
-                }
-            },
-            dataLabels: {
-                style: {
-                    colors: ['#ffffff'] // 데이터 레이블 색상을 흰색으로 설정
-                }
-            },
-            colors: ['#008FFB', '#00E396', '#FEB019'] // 각 막대에 다른 색상 적용
-        };
+                },
+                series: [{
+                    name: 'MTD 성과',
+                    data: mtdPerfData
+                }],
+                xaxis: {
+                    categories: categories,
+                    labels: {
+                        style: {
+                            colors: '#ffffff'
+                        }
+                    },
+                    axisBorder: {
+                        color: '#ffffff'
+                    },
+                    axisTicks: {
+                        color: '#ffffff'
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#ffffff'
+                        }
+                    },
+                    axisBorder: {
+                        color: '#ffffff'
+                    },
+                    axisTicks: {
+                        color: '#ffffff'
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    style: {
+                        fontSize: '16px',
+                        color: '#ffffff'
+                    },
+                    y: {
+                        formatter: function(value) {
+                            return value + "%";
+                        },
+                        title: {
+                            formatter: function () {
+                                return 'MTD 성과: ';
+                            },
+                            style: {
+                                color: '#ffffff',
+                                fontSize: '16px'
+                            }
+                        }
+                    }
+                },
+                dataLabels: {
+                    style: {
+                        colors: ['#ffffff']
+                    }
+                },
+                colors: ['#008FFB', '#00E396', '#FEB019']
+            };
 
-        const chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }).catch(error => {
+            console.error("데이터를 불러오는 중 오류가 발생했습니다:", error);
+        });
     </script>
 
 </body>
