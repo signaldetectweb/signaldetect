@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스택형 막대 차트</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Full-screen chart container */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #000000; /* Set page background to black */
+            color: #ffffff; /* Set text color to white for readability */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Remove scroll bars */
+        }
+        #chart {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // Base64 데이터를 가져오는 함수
+        async function 가져오기() {
+            const 응답 = await fetch('17.json'); // Change to 5.json
+            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
+            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            return jsonData;
+        }
+
+        // 차트 렌더링
+        가져오기()
+            .then(data => {
+                // 날짜를 순서대로 정렬
+                const categories = [...new Set(data.map(item => item.date))].sort((a, b) => new Date(a) - new Date(b));
+
+                const actions = ['bitcoin', 'ethereum', 'sui', 'solana', 'sei', 'bnb', 'cardano']; // 주요 암호화폐 action 목록
+
+                // 각 날짜별로 데이터를 합산하여 퍼센트 계산
+                const series = actions.map(action => {
+                    return {
+                        name: action,
+                        data: categories.map(date => {
+                            const entriesForDate = data.filter(item => item.date === date);
+                            const totalForDate = entriesForDate.reduce((sum, item) => sum + item.count, 0); // 그 날짜의 총합
+                            const entry = entriesForDate.find(item => item.action === action);
+                            return entry ? (entry.count / totalForDate) * 100 : 0; // 퍼센트 계산
+                        })
+                    };
+                });
+
+                // 밝은 색상 설정
+                const colors = ['#FFD700', '#87CEEB', '#FF69B4', '#32CD32', '#FFA07A', '#BA55D3', '#20B2AA'];
+
+                // ApexCharts 설정
+                const options = {
+                    chart: {
+                        type: 'bar',
+                        height: '100%',  // 차트를 화면 전체 높이로 설정
+                        width: '100%',   // 차트를 화면 전체 너비로 설정
+                        stacked: true,
+                        stackType: '100%',
+                        background: '#000000', // Set chart background to black
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
+                        }
+                    },
+                    series: series,
+                    xaxis: {
+                        categories: categories,
+                        labels: {
+                            rotate: -45,
+                            style: {
+                                colors: '#ffffff' // Set x-axis label color to white
+                            },
+                            showDuplicates: false,
+                            hideOverlappingLabels: true,
+                            trim: true,
+                        },
+                        tickAmount: Math.floor(categories.length / 6),
+                    },
+                    yaxis: {
+                        labels: {
+                            formatter: function (val) {
+                                return val.toFixed(0) + '%';
+                            },
+                            style: {
+                                colors: '#ffffff' // Set y-axis label color to white
+                            }
+                        }
+                    },
+                    colors: colors,  // 밝은 색상 배열 적용
+                    tooltip: {
+                        enabled: true,
+                        shared: true,
+                        followCursor: true,
+                        intersect: false,
+                        y: {
+                            formatter: function (val) {
+                                return val.toFixed(2) + "%";
+                            }
+                        },
+                        theme: 'dark', // Use dark theme for tooltip
+                        style: {
+                            fontSize: '16px', // Increased font size for better visibility
+                            backgroundColor: '#333333', // Dark background for tooltip
+                            color: '#ffffff' // White text for tooltip
+                        },
+                        marker: {
+                            fillColors: colors // Match tooltip markers to series colors
+                        },
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    legend: {
+                        position: 'right',
+                        offsetY: 40,
+                        labels: {
+                            colors: '#ffffff' // Set legend label color to white
+                        },
+                        markers: {
+                            fillColors: colors // Match legend markers to series colors
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false // 데이터 레이블(숫자)을 비활성화
+                    },
+                    grid: {
+                        borderColor: '#333333', // Set grid line color to dark gray
+                        xaxis: {
+                            lines: {
+                                show: true // Show grid lines for x-axis
+                            }
+                        },
+                        yaxis: {
+                            lines: {
+                                show: true // Show grid lines for y-axis
+                            }
+                        }
+                    }
+                };
+
+                // 차트 생성 및 렌더링
+                const chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => console.error('데이터를 가져오는 중 오류가 발생했습니다:', error));
+    </script>
+</body>
+</html>
