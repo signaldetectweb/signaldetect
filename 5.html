@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- ApexCharts CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body style="background-color: #000; color: #FFF; margin: 0; overflow: hidden;"> <!-- Remove default margin and set overflow to hidden -->
+    <div id="chart" style="width: 100vw; height: 100vh;"></div> <!-- Set chart container to full viewport width and height -->
+
+    <script>
+        async function 가져오기() {
+            const 응답 = await fetch('5.json'); // Change to 5.json
+            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
+            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            return jsonData;
+        }
+
+        function 중복제거(데이터) {
+            const 고유날짜 = {};
+            return 데이터.filter(항목 => {
+                const 날짜 = 항목.month.split(" ")[0];
+                if (!고유날짜[날짜]) {
+                    고유날짜[날짜] = true;
+                    return true;
+                }
+                return false;
+            });
+        }
+
+        function 날짜정렬(데이터) {
+            return 데이터.sort((a, b) => new Date(a.month) - new Date(b.month));
+        }
+
+        function 차트생성(정렬된데이터) {
+            var 월별 = 정렬된데이터.map(항목 => new Date(항목.month).toLocaleDateString('ko-KR', { year: 'numeric', month: 'short' }));
+            var 볼륨달러 = 정렬된데이터.map(항목 => 항목.volume_dollar);
+
+            var 옵션 = {
+                chart: {
+                    type: 'line',
+                    height: '100%', // Set chart height to 100% of container
+                    width: '100%',  // Set chart width to 100% of container
+                    background: '#000',
+                    foreColor: '#FFF',
+                    toolbar: {
+                        tools: {
+                            download: false // Disable the download button
+                        }
+                    }
+                },
+                series: [{
+                    name: '볼륨 (달러)',
+                    data: 볼륨달러
+                }],
+                xaxis: {
+                    categories: 월별,
+                    labels: {
+                        style: {
+                            colors: '#FFF',
+                            fontSize: '14px'
+                        }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function (값) {
+                            return "$" + 값.toLocaleString();
+                        },
+                        style: {
+                            colors: '#FFF',
+                            fontSize: '14px'
+                        }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    y: {
+                        formatter: function (값) {
+                            return "$" + 값.toLocaleString();
+                        }
+                    }
+                },
+                colors: ['#00E396'],
+                grid: {
+                    borderColor: '#555',
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                dataLabels: {
+                    enabled: false
+                }
+            };
+
+            var 차트 = new ApexCharts(document.querySelector("#chart"), 옵션);
+            차트.render();
+        }
+
+        가져오기().then(데이터 => {
+            var 필터링된데이터 = 중복제거(데이터);
+            var 정렬된데이터 = 날짜정렬(필터링된데이터);
+            차트생성(정렬된데이터);
+        }).catch(error => {
+            console.error('데이터를 가져오는 중 오류 발생:', error);
+        });
+    </script>
+</body>
+</html>
