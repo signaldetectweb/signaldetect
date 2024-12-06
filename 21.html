@@ -25,22 +25,40 @@
     <div id="chart"></div>
 
     <script>
-        async function 가져오기() {
-            const 응답 = await fetch('21.json'); // Change to 5.json
-            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
-            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
-            return jsonData;
+        // Base64 decoding function
+        function base64Decode(base64String) {
+            try {
+                const decodedString = atob(base64String);
+                return JSON.parse(decodedString);
+            } catch (e) {
+                console.error('Error decoding Base64 string:', e);
+                return null;
+            }
         }
 
-        async function renderChart() {
-            const data = await 가져오기();
+        async function fetchData() {
+            const response = await fetch('21.json');
+            const base64Data = await response.text();
+            
+            // Decode Base64 content
+            const jsonData = base64Decode(base64Data);
+            
+            if (!jsonData) {
+                throw new Error('Failed to decode Base64 data.');
+            }
 
-            const seriesData = data
+            const seriesData = jsonData
                 .map(entry => ({
                     x: new Date(entry.day),
                     y: parseFloat(entry.value.toFixed(1))
                 }))
                 .sort((a, b) => a.x - b.x);
+
+            return seriesData;
+        }
+
+        async function renderChart() {
+            const seriesData = await fetchData();
 
             var options = {
                 chart: {
