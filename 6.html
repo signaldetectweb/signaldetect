@@ -3,130 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexCharts 예제 - 날짜 한국어 표시 (년도/월만)</title>
-    <!-- ApexCharts 라이브러리 추가 -->
+    <title>JSON Base64 차트</title>
+    <!-- ApexCharts CDN -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <!-- jQuery 라이브러리 추가 (AJAX 요청에 사용) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-            overflow: hidden;
-        }
-        #chart {
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
 </head>
-<body>
-    <div id="chart"></div>
+<body style="background-color: #000; color: #FFF; margin: 0; overflow: hidden;">
+    <div id="chart" style="width: 100vw; height: 100vh;"></div>
 
     <script>
-        // Base64로 암호화된 JSON 데이터를 로드 및 복호화하여 차트를 생성하는 함수
-        const base64FilePath = '6.json';
+        async function 가져오기() {
+            const 응답 = await fetch('6.json'); // Base64로 암호화된 JSON 파일 경로
+            const base64Data = await 응답.text(); // Base64 데이터 가져오기
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 복호화 및 JSON 파싱
+            return jsonData;
+        }
 
-        $.get(base64FilePath, function(encodedData) {
-            try {
-                // Base64 문자열을 복호화
-                let decodedData = atob(encodedData);
+        function 중복제거(데이터) {
+            const 고유날짜 = {};
+            return 데이터.filter(항목 => {
+                const 날짜 = 항목.month.split(" ")[0];
+                if (!고유날짜[날짜]) {
+                    고유날짜[날짜] = true;
+                    return true;
+                }
+                return false;
+            });
+        }
 
-                // JSON 문자열을 파싱하여 객체로 변환
-                let data = JSON.parse(decodedData);
+        function 날짜정렬(데이터) {
+            return 데이터.sort((a, b) => new Date(a.month) - new Date(b.month));
+        }
 
-                // JSON 데이터를 날짜순으로 정렬
-                let sortedData = data.sort((a, b) => new Date(a.day) - new Date(b.day));
+        function 차트생성(정렬된데이터) {
+            const 월별 = 정렬된데이터.map(항목 => 
+                new Date(항목.month).toLocaleDateString('ko-KR', { year: 'numeric', month: 'short' })
+            );
+            const 볼륨달러 = 정렬된데이터.map(항목 => 항목.volume_dollar);
 
-                // JSON 데이터를 차트 형식에 맞게 변환
-                let chartData = sortedData.map(item => {
-                    return { x: new Date(item.day).getTime(), y: parseFloat(item.Volume_per_users).toFixed(2) };
-                });
-
-                // 차트 옵션 설정
-                var options = {
-                    chart: {
-                        type: 'line',
-                        width: '100%',
-                        height: '100%',
-                        background: '#000000',
-                        toolbar: {
-                            tools: {
-                                download: false // 다운로드 버튼 비활성화
-                            }
+            const 옵션 = {
+                chart: {
+                    type: 'line',
+                    height: '100%',
+                    width: '100%',
+                    background: '#000',
+                    foreColor: '#FFF',
+                    toolbar: {
+                        tools: {
+                            download: false
                         }
-                    },
-                    series: [{
-                        name: '사용자당 볼륨',
-                        data: chartData
-                    }],
-                    stroke: {
-                        width: 1,
-                        colors: ['#ffffff']
-                    },
-                    xaxis: {
-                        type: 'datetime',
-                        labels: {
-                            formatter: function(value) {
-                                const date = new Date(value);
-                                return date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월';
-                            },
-                            style: {
-                                colors: '#ffffff',
-                                fontSize: '12px'
-                            }
-                        }
-                    },
-                    yaxis: {
-                        labels: {
-                            formatter: function(value) {
-                                return value.toFixed(2);
-                            },
-                            style: {
-                                colors: '#ffffff',
-                                fontSize: '12px'
-                            }
-                        }
-                    },
-                    tooltip: {
-                        theme: 'dark',
-                        y: {
-                            formatter: function(value) {
-                                return value.toFixed(2);
-                            }
-                        },
-                        x: {
-                            formatter: function(value) {
-                                const date = new Date(value);
-                                const year = date.getFullYear();
-                                const month = ('0' + (date.getMonth() + 1)).slice(-2);
-                                const day = ('0' + date.getDate()).slice(-2);
-                                return `${year}-${month}-${day}`;
-                            }
-                        }
-                    },
-                    grid: {
-                        borderColor: '#444444'
                     }
-                };
+                },
+                series: [{
+                    name: '볼륨 (달러)',
+                    data: 볼륨달러
+                }],
+                xaxis: {
+                    categories: 월별,
+                    labels: {
+                        style: {
+                            colors: '#FFF',
+                            fontSize: '14px'
+                        }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function (값) {
+                            return "$" + 값.toLocaleString();
+                        },
+                        style: {
+                            colors: '#FFF',
+                            fontSize: '14px'
+                        }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    y: {
+                        formatter: function (값) {
+                            return "$" + 값.toLocaleString();
+                        }
+                    }
+                },
+                colors: ['#00E396'],
+                grid: {
+                    borderColor: '#555',
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                dataLabels: {
+                    enabled: false
+                }
+            };
 
-                // 차트를 렌더링합니다.
-                var chart = new ApexCharts(document.querySelector("#chart"), options);
-                chart.render();
-            } catch (error) {
-                console.error("데이터 처리 중 오류가 발생했습니다:", error);
-            }
-        });
+            const 차트 = new ApexCharts(document.querySelector("#chart"), 옵션);
+            차트.render();
+        }
 
-        // 창 크기 변경 시 차트 크기를 다시 조정
-        window.addEventListener('resize', () => {
-            document.querySelector("#chart").style.width = `${window.innerWidth}px`;
-            document.querySelector("#chart").style.height = `${window.innerHeight}px`;
-        });
+        가져오기()
+            .then(데이터 => {
+                const 필터링된데이터 = 중복제거(데이터);
+                const 정렬된데이터 = 날짜정렬(필터링된데이터);
+                차트생성(정렬된데이터);
+            })
+            .catch(error => {
+                console.error('데이터를 가져오는 중 오류 발생:', error);
+            });
     </script>
 </body>
 </html>
