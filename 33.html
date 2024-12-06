@@ -6,7 +6,6 @@
     <title>일일 활성 주소 수</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
-        /* Ensure the chart container fills the entire viewport */
         body, html {
             margin: 0;
             padding: 0;
@@ -29,27 +28,19 @@
     <div id="chart"></div>
 
     <script>
-        // Base64 디코딩 함수
-        function decodeBase64(base64String) {
-            const decodedString = atob(base64String); // Base64 디코딩
-            return JSON.parse(decodedString); // JSON으로 파싱
-        }
-
-        // 33.json 파일에서 데이터를 가져오는 함수
-        async function fetchData() {
-            const response = await fetch('33.json'); // JSON 파일 경로
-            const base64Data = await response.text(); // Base64 데이터 가져오기
-            const decodedData = decodeBase64(base64Data); // Base64 디코딩
-           
-            // 차트에 맞는 형식으로 데이터 변환
-            return decodedData.map(item => {
-                return { x: item.Date, y: item.Total_Active_Addresses };
+        // Base64 데이터를 가져와 디코딩하여 JSON 데이터를 반환하는 함수
+        async function 가져오기() {
+            const 응답 = await fetch(33.json'); // Change to 5.json
+            const base64Data = await 응답.text(); // Get Base64 encoded string from the file
+            const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
+            return jsonData.map(item => {
+                return { x: item.Date, y: item.Total_Active_Addresses }; // 데이터 형식 변환
             });
         }
 
         // ApexCharts 옵션 설정
         async function createChart() {
-            const seriesData = await fetchData();
+            const seriesData = await 가져오기();
 
             var options = {
                 chart: {
