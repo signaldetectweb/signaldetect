@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분기 성과 차트</title>
+    <!-- ApexCharts 라이브러리 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Set chart container to occupy full viewport */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+        }
+        #chart {
+            height: 100%; /* Full height */
+            width: 100%; /* Full width */
+        }
+    </style>
+</head>
+<body>
+    <!-- 차트를 표시할 요소 -->
+    <div id="chart"></div>
+
+    <script>
+        // Base64로 암호화된 JSON 파일 로드
+        fetch('10.json')
+            .then(response => response.text()) // 파일을 텍스트로 읽기
+            .then(base64Data => {
+                // Base64 문자열을 디코딩
+                const decodedData = atob(base64Data);
+
+                // JSON 파싱
+                const data = JSON.parse(decodedData);
+
+                // JSON 데이터를 quarter_perf 값에 따라 내림차순으로 정렬
+                const sortedData = data.sort((a, b) => b.quarter_perf - a.quarter_perf);
+
+                // 정렬된 데이터를 시리즈 데이터로 변환
+                const seriesData = sortedData.map(item => {
+                    return {
+                        x: item.narrative,
+                        y: (item.quarter_perf * 100).toFixed(1) // 100을 곱하고 소수점 한 자리까지만 표현
+                    };
+                });
+
+                // 차트에 사용할 데이터 설정
+                var options = {
+                    series: [{
+                        name: '분기 성과',
+                        data: seriesData
+                    }],
+                    chart: {
+                        type: 'bar', // 바 차트 형식
+                        height: '100%', // Set chart height to fill the container
+                        width: '100%',  // Set chart width to fill the container
+                        background: '#000000', // Set chart background color to black
+                        toolbar: {
+                            tools: {
+                                download: false // 다운로드 버튼 비활성화
+                            }
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: true, // 수평형 바 차트
+                            barHeight: '60%',
+                            colors: {
+                                ranges: [{
+                                    from: 0,
+                                    to: 100,
+                                    color: '#00E396' // Light green for bars
+                                }]
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true, // 데이터 레이블 표시
+                        formatter: function (val) {
+                            return val + '%'; // 퍼센트 형식으로 표시
+                        },
+                        style: {
+                            colors: ['#ffffff'] // Set data label color to white
+                        }
+                    },
+                    xaxis: {
+                        categories: seriesData.map(item => item.x), // 카테고리 설정
+                        labels: {
+                            style: { colors: '#ffffff' } // Set x-axis label color to white
+                        },
+                        axisBorder: {
+                            color: '#666666' // Lighter gray for axis border
+                        },
+                        axisTicks: {
+                            color: '#666666' // Lighter gray for axis ticks
+                        }
+                    },
+                    yaxis: {
+                        labels: {
+                            style: { colors: ['#ffffff'] } // Set y-axis label color to white
+                        },
+                        axisBorder: {
+                            color: '#666666' // Lighter gray for axis border
+                        },
+                        axisTicks: {
+                            color: '#666666' // Lighter gray for axis ticks
+                        }
+                    },
+                    tooltip: {
+                        theme: 'dark', // Set tooltip theme to dark
+                        style: {
+                            fontSize: '16px', // Increase tooltip font size
+                            colors: ['#ffffff'] // Set tooltip text color to white
+                        },
+                        fillSeriesColor: false,
+                        marker: {
+                            fillColors: ['#00E396'] // Set marker color to light green
+                        },
+                        x: {
+                            formatter: function (val) {
+                                return `<span style="color: #ffffff">${val}</span>`; // Tooltip x-axis label in white
+                            }
+                        },
+                        y: {
+                            formatter: function (val) {
+                                return `<span style="color: #ffffff">${val}%</span>`; // Tooltip y-axis label in white with percentage sign
+                            }
+                        }
+                    },
+                    grid: {
+                        borderColor: '#333333' // Dark gray grid lines
+                    },
+                    theme: {
+                        mode: 'dark' // Enable dark theme
+                    }
+                };
+
+                // ApexCharts 차트를 생성하여 HTML 요소에 렌더링
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+            })
+            .catch(error => console.error('데이터 로드 실패:', error));
+    </script>
+</body>
+</html>
