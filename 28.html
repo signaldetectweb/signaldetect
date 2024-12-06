@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비트코인 일별 가치</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        /* Ensure the body and html take up the full viewport */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;  /* Set the background color to black */
+        }
+        /* Make the chart div take up the full screen */
+        #chart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        // JSON 파일에서 Base64 데이터를 가져오는 함수
+        async function fetchData() {
+            const response = await fetch('28.json');  // 5.json 파일 경로
+            const base64Data = await response.text(); // Base64 인코딩된 문자열 가져오기
+            const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열을 디코드하여 JSON 데이터로 변환
+
+            // JSON 데이터를 ApexCharts 형식에 맞게 변환하고, 소숫점 1자리까지 반올림
+            const seriesData = jsonData.map(entry => ({
+                x: new Date(entry.day),
+                y: parseFloat(entry.value.toFixed(1))  // 소숫점 1자리까지 반올림
+            }));
+
+            // 날짜 순서대로 정렬
+            seriesData.sort((a, b) => a.x - b.x);
+
+            return seriesData;
+        }
+
+        // 차트를 렌더링하는 함수
+        async function renderChart() {
+            const seriesData = await fetchData();
+
+            var options = {
+                chart: {
+                    type: 'line',
+                    width: '100%',
+                    height: '100%',
+                    background: '#000000',  // Chart background set to black
+                    toolbar: {
+                        tools: {
+                            download: false  // 다운로드 버튼 비활성화
+                        }
+                    }
+                },
+                series: [{
+                    name: '비트코인 가치',
+                    data: seriesData  // 데이터를 차트에 적용
+                }],
+                stroke: {
+                    width: 3,  // 선의 두께 설정
+                    colors: ['#FFFFFF'],  // 선 색상 흰색으로 변경
+                },
+                xaxis: {
+                    type: 'datetime',
+                    labels: {
+                        format: 'yyyy-MM-dd',
+                        style: {
+                            colors: '#FFFFFF'  // X축 레이블 색상 흰색으로 변경
+                        }
+                    },
+                    axisBorder: {
+                        color: '#666666'  // X축 경계선 색상 밝은 회색으로 변경
+                    },
+                    axisTicks: {
+                        color: '#666666'  // X축 틱 색상 밝은 회색으로 변경
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#FFFFFF'  // Y축 레이블 색상 흰색으로 변경
+                        }
+                    },
+                    axisBorder: {
+                        color: '#666666'  // Y축 경계선 색상 밝은 회색으로 변경
+                    },
+                    axisTicks: {
+                        color: '#666666'  // Y축 틱 색상 밝은 회색으로 변경
+                    }
+                },
+                grid: {
+                    borderColor: '#333333'  // 그리드 선 색상을 어두운 회색으로 변경
+                },
+                tooltip: {
+                    x: {
+                        format: 'yyyy-MM-dd'  // 툴팁의 날짜 형식을 지정
+                    },
+                    theme: 'dark',  // 툴팁을 어두운 테마로 설정
+                    style: {
+                        fontSize: '16px',  // Increase tooltip font size
+                        fontFamily: 'Arial, sans-serif'  // Optionally set a font family
+                    },
+                    y: {
+                        formatter: function(value) {
+                            return `가치: ${value} BTC`;  // Tooltip content formatting
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: false  // 데이터 레이블 비활성화 (필요 시 활성화 가능)
+                },
+                legend: {
+                    labels: {
+                        colors: '#FFFFFF'  // 범례 텍스트 색상 흰색으로 변경
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // 페이지가 로드되면 차트를 렌더링
+        renderChart();
+    </script>
+</body>
+</html>
