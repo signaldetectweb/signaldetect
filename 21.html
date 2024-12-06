@@ -25,13 +25,13 @@
     <div id="chart"></div>
 
     <script>
-        // Base64 decoding function
         function base64Decode(base64String) {
             try {
                 const decodedString = atob(base64String);
                 return JSON.parse(decodedString);
             } catch (e) {
-                console.error('Error decoding Base64 string:', e);
+                console.error('Error decoding Base64 string:', e.message);
+                console.error('Base64 String:', base64String); // 디버깅용 출력
                 return null;
             }
         }
@@ -39,10 +39,11 @@
         async function fetchData() {
             const response = await fetch('21.json');
             const base64Data = await response.text();
-            
-            // Decode Base64 content
+            console.log('Fetched Base64 Data:', base64Data);
+
             const jsonData = base64Decode(base64Data);
-            
+            console.log('Decoded JSON Data:', jsonData);
+
             if (!jsonData) {
                 throw new Error('Failed to decode Base64 data.');
             }
@@ -54,6 +55,7 @@
                 }))
                 .sort((a, b) => a.x - b.x);
 
+            console.log('Series Data:', seriesData);
             return seriesData;
         }
 
@@ -68,7 +70,7 @@
                     background: '#000000',
                     toolbar: {
                         tools: {
-                            download: false // Disable download button
+                            download: false
                         }
                     }
                 },
@@ -97,32 +99,7 @@
                     }
                 },
                 tooltip: {
-                    theme: 'dark',
-                    style: {
-                        fontSize: '16px',
-                        fontFamily: 'Arial',
-                        background: '#333333',
-                        color: '#ffcc00'
-                    },
-                    x: {
-                        format: 'yyyy-MM-dd'
-                    },
-                    y: {
-                        formatter: value => `${value} BTC`,
-                        title: {
-                            formatter: () => '가치'
-                        }
-                    },
-                    marker: {
-                        show: true,
-                        fillColors: ['#ffcc00'],
-                    },
-                    custom: function({ series, seriesIndex, dataPointIndex, w }) {
-                        const date = new Date(w.globals.seriesX[seriesIndex][dataPointIndex]).toISOString().split('T')[0];
-                        return '<div style="padding: 10px; font-size: 16px;">' +
-                               '날짜: ' + date + '<br>' +
-                               '가치: ' + series[seriesIndex][dataPointIndex] + ' BTC</div>';
-                    }
+                    theme: 'dark'
                 },
                 grid: {
                     borderColor: '#333333'
