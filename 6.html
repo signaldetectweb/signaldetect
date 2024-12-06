@@ -37,12 +37,12 @@
             return JSON.parse(decodedData); // 디코딩된 문자열을 JSON 객체로 변환
         }
 
-        // 6.json 파일을 비동기적으로 가져오는 함수
+        // 6.json 파일을 비동기적으로 가져와 Base64 디코딩 후 처리하는 함수
         function loadAndDecodeJsonFile(filePath) {
             return $.get(filePath, function(data) {
-                // JSON 데이터를 Base64로 인코딩된 상태로 받아옴
-                const base64JsonData = data; // 예시로 Base64로 암호화된 데이터로 받기
-                return decodeBase64(base64JsonData);
+                // 가져온 데이터가 Base64로 암호화된 상태로 전달
+                const base64JsonData = data; // Base64 암호화된 데이터
+                return decodeBase64(base64JsonData); // Base64 디코딩하여 반환
             });
         }
 
