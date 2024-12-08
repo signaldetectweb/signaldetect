@@ -12,7 +12,7 @@
 
     <script>
         async function 가져오기() {
-            const 응답 = await fetch('4.json'); // Change to 5.json
+            const 응답 = await fetch('5.json'); // Change to 5.json
             const base64Data = await 응답.text(); // Get Base64 encoded string from the file
             const jsonData = JSON.parse(atob(base64Data)); // Decode the Base64 string to JSON data
             return jsonData;
