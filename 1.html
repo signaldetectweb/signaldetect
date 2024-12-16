@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <style>
+        /* 차트 배경과 페이지 배경을 검은색으로 설정 */
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            color: #FFFFFF;
-            overflow: hidden;
+            margin: 0; /* 기본 여백 제거 */
+            padding: 0; /* 기본 여백 제거 */
+            background-color: #000000; /* 페이지 배경을 검은색으로 설정 */
+            color: #FFFFFF; /* 기본 텍스트 색상을 흰색으로 설정 */
+            overflow: hidden; /* 스크롤바 제거 */
         }
         #chart {
-            width: 100vw;
-            height: 100vh;
-            padding: 0;
-            background-color: #000000;
+            width: 100vw; /* 뷰포트 너비 전체 사용 */
+            height: 100vh; /* 뷰포트 높이 전체 사용 */
+            padding: 0; /* 차트 주변 여백 제거 */
+            background-color: #000000; /* 차트 배경을 검은색으로 설정 */
         }
+        /* 차트에 마우스를 올렸을 때 커서를 pointer로 변경 */
         #chart:hover {
-            cursor: pointer;
+            cursor: pointer; /* 필요에 따라 다른 커서 스타일로 변경 가능 */
         }
     </style>
 </head>
@@ -27,42 +29,45 @@
     <div id="chart"></div>
 
     <script>
-        // Base64 디코딩 함수
-        function decodeBase64(base64String) {
-            return decodeURIComponent(atob(base64String).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
+        async function 가져오기() {
+            try {
+                const 응답 = await fetch('1.json'); // Base64 인코딩된 파일 가져오기
+                const base64Data = await 응답.text(); // Base64 문자열로 데이터 가져오기
+                const jsonData = JSON.parse(atob(base64Data)); // Base64 문자열을 디코드 후 JSON으로 변환
+                return jsonData;
+            } catch (error) {
+                console.error('데이터 가져오기 오류:', error);
+                return null;
+            }
         }
 
-        // JSON 파일에서 Base64로 암호화된 데이터 로드 및 디코딩
-        fetch('1.json')
-        .then(response => response.text()) // Base64로 인코딩된 텍스트 로드
-        .then(base64Data => {
-            const jsonData = JSON.parse(decodeBase64(base64Data)); // Base64 디코드 및 JSON 파싱
+        가져오기().then(data => {
+            if (!data) return;
+
             // 날짜 데이터를 Date 객체로 변환하여 정렬
-            jsonData.sort((a, b) => new Date(a.day) - new Date(b.day));
+            data.sort((a, b) => new Date(a.day) - new Date(b.day));
 
             // 날짜, BTC 잔액, USD 잔액을 배열로 분리
-            let days = jsonData.map(entry => entry.day);
-            let btcBalances = jsonData.map(entry => entry.BTC_Balance);
-            let usdBalances = jsonData.map(entry => entry.USD_Balance);
+            let days = data.map(entry => entry.day);
+            let btcBalances = data.map(entry => entry.BTC_Balance);
+            let usdBalances = data.map(entry => entry.USD_Balance);
 
             var options = {
                 chart: {
                     type: 'line',
-                    height: '100%',
-                    width: '100%',
-                    background: '#000000',
+                    height: '100%', // 차트 높이를 100%로 설정
+                    width: '100%',  // 차트 너비를 100%로 설정
+                    background: '#000000', // 차트 배경을 검은색으로 설정
                     toolbar: {
                         show: true,
                         tools: {
-                            zoom: true,
-                            zoomin: true,
-                            zoomout: true,
-                            pan: true,
-                            reset: false
+                            zoom: true,        // 확대 버튼 표시
+                            zoomin: true,      // 확대 버튼 표시
+                            zoomout: true,     // 축소 버튼 표시
+                            pan: true,         // 이동 버튼 표시
+                            reset: false       // 리셋 버튼 숨기기
                         },
-                        autoSelected: 'pan'
+                        autoSelected: 'pan'   // 초기 마우스 모드를 panning으로 설정
                     }
                 },
                 series: [{
@@ -81,84 +86,83 @@
                     labels: {
                         format: 'yyyy-MM-dd',
                         style: {
-                            colors: '#FFFFFF',
-                            fontSize: '20px'
+                            colors: '#FFFFFF', // x축 레이블을 흰색으로 설정
+                            fontSize: '20px' // 폰트 크기 설정
                         }
                     },
                     axisBorder: {
-                        color: '#FFFFFF'
+                        color: '#FFFFFF' // x축 테두리를 흰색으로 설정
                     },
                     axisTicks: {
-                        color: '#FFFFFF'
+                        color: '#FFFFFF' // x축 틱을 흰색으로 설정
                     }
                 },
                 yaxis: [{
                     title: {
-                        text: ''
+                        text: '' // y축 제목 제거
                     },
                     labels: {
                         formatter: function (value) {
-                            return value.toFixed(1);
+                            return value.toFixed(1); // 소수점 1자리까지 표시
                         },
                         style: {
-                            colors: '#FFFFFF',
-                            fontSize: '20px'
+                            colors: '#FFFFFF', // y축 레이블을 흰색으로 설정
+                            fontSize: '20px' // 폰트 크기 설정
                         }
                     },
                     axisBorder: {
-                        color: '#FFFFFF'
+                        color: '#FFFFFF' // y축 테두리를 흰색으로 설정
                     },
                     axisTicks: {
-                        color: '#FFFFFF'
+                        color: '#FFFFFF' // y축 틱을 흰색으로 설정
                     }
                 }, {
                     opposite: true,
                     title: {
-                        text: ''
+                        text: '' // 반대편 y축 제목 제거
                     },
                     labels: {
                         formatter: function (value) {
-                            return value.toFixed(1);
+                            return value.toFixed(1); // 소수점 1자리까지 표시
                         },
                         style: {
-                            colors: '#FFFFFF',
-                            fontSize: '20px'
+                            colors: '#FFFFFF', // 반대편 y축 레이블을 흰색으로 설정
+                            fontSize: '20px' // 폰트 크기 설정
                         }
                     },
                     axisBorder: {
-                        color: '#FFFFFF'
+                        color: '#FFFFFF' // 반대편 y축 테두리를 흰색으로 설정
                     },
                     axisTicks: {
-                        color: '#FFFFFF'
+                        color: '#FFFFFF' // 반대편 y축 틱을 흰색으로 설정
                     }
                 }],
                 grid: {
-                    borderColor: '#444444'
+                    borderColor: '#444444' // 그리드선을 어두운 회색으로 설정하여 배경과 조화롭게 만듦
                 },
                 tooltip: {
                     enabled: true,
                     shared: true,
                     intersect: false,
-                    theme: 'dark',
+                    theme: 'dark', // 툴팁을 어두운 테마로 설정
                     x: {
                         format: 'yyyy-MM-dd'
                     },
                     style: {
-                        fontSize: '20px'
+                        fontSize: '20px' // 툴팁 폰트 크기 설정
                     }
                 },
                 legend: {
                     labels: {
-                        colors: '#FFFFFF',
-                        fontSize: '20px'
+                        colors: '#FFFFFF', // 범례 텍스트를 흰색으로 설정
+                        fontSize: '20px' // 폰트 크기 설정
                     }
                 }
             };
 
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render();
-        })
-        .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 </html>
