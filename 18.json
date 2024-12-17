@@ -1,1 +1,54 @@
-WwogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuMzk1NzIxOTI1MTMzNjg5ODcsCiAgICAgICAgInN5bWJvbCI6ICJNYW50YSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4zNzI4MDcwMTc1NDM4NTk2NCwKICAgICAgICAic3ltYm9sIjogIkxpbmVhIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjA2OTE4NjAzNjUyMzU2MTY0LAogICAgICAgICJzeW1ib2wiOiAiT1AiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuMDM4OTU4MDMyODY4NjE0NTY2LAogICAgICAgICJzeW1ib2wiOiAiQmFzZSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wMzcyOTgwOTEwNDI1ODQ0MzQsCiAgICAgICAgInN5bWJvbCI6ICJCbGFzdCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMCwKICAgICAgICAic3ltYm9sIjogIk1FVElTIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4xMDUzMDU0NjYyMzc5NDIxMiwKICAgICAgICAic3ltYm9sIjogIkFSQiIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMTcyODM5NTA2MTcyODM5NSwKICAgICAgICAic3ltYm9sIjogIlN0YXJrbmV0IgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4yMDI1MDUyMTkyMDY2ODA1OCwKICAgICAgICAic3ltYm9sIjogIlprc3luYyIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMjU3NDI1NzQyNTc0MjU3NDMsCiAgICAgICAgInN5bWJvbCI6ICJTVFgiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjI4MjkxMzE2NTI2NjEwNjQ0LAogICAgICAgICJzeW1ib2wiOiAiTWFudGxlIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC40NTcxNDI4NTcxNDI4NTcxMywKICAgICAgICAic3ltYm9sIjogIlNLTCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuNjQ5Mzc5MTA4ODM4NTY4MywKICAgICAgICAic3ltYm9sIjogIk1BVElDIgogICAgfQpd
+[
+    {
+        "mention_growth": 0.38148984198645597,
+        "symbol": "Linea"
+    },
+    {
+        "mention_growth": 0.36363636363636365,
+        "symbol": "Manta"
+    },
+    {
+        "mention_growth": 0.07774192717942557,
+        "symbol": "OP"
+    },
+    {
+        "mention_growth": 0.06050398976889962,
+        "symbol": "Base"
+    },
+    {
+        "mention_growth": 0.015492546039169833,
+        "symbol": "Blast"
+    },
+    {
+        "mention_growth": -0.09230769230769231,
+        "symbol": "METIS"
+    },
+    {
+        "mention_growth": -0.10335349092908191,
+        "symbol": "ARB"
+    },
+    {
+        "mention_growth": -0.20044052863436124,
+        "symbol": "Zksync"
+    },
+    {
+        "mention_growth": -0.23493975903614459,
+        "symbol": "Starknet"
+    },
+    {
+        "mention_growth": -0.2411764705882353,
+        "symbol": "Mantle"
+    },
+    {
+        "mention_growth": -0.26666666666666666,
+        "symbol": "STX"
+    },
+    {
+        "mention_growth": -0.3068181818181818,
+        "symbol": "SKL"
+    },
+    {
+        "mention_growth": -0.6486819413648682,
+        "symbol": "MATIC"
+    }
+]
