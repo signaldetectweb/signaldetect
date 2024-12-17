@@ -1,1 +1,86 @@
-WwogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDEuNzQ3MDMzMTA0MzA5ODA2NCwKICAgICAgICAic3ltYm9sIjogIkdOTyIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC43MzkxMzA0MzQ3ODI2MDg2LAogICAgICAgICJzeW1ib2wiOiAiS0FWQSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4zODU4MDkzMTI2Mzg1ODA5LAogICAgICAgICJzeW1ib2wiOiAiUlVORSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4xNjI4OTQwOTg2MjU3MDczNiwKICAgICAgICAic3ltYm9sIjogIlNVSSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4xMTk0NDQyNDc1MzY2ODM5MSwKICAgICAgICAic3ltYm9sIjogIkFQVCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wODIwNzczOTMwNzUzNTY0MSwKICAgICAgICAic3ltYm9sIjogIlNFSSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wNTU1NTU1NTU1NTU1NTU1NSwKICAgICAgICAic3ltYm9sIjogIkFWQVgiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuMDI4NzA5ODIzOTA2MzUyNDksCiAgICAgICAgInN5bWJvbCI6ICJBREEiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuMDAxMDEzNTEzNTEzNTEzNTEzNiwKICAgICAgICAic3ltYm9sIjogIlNPTCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMCwKICAgICAgICAic3ltYm9sIjogIktVSkkiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAsCiAgICAgICAgInN5bWJvbCI6ICIkTkVBUiIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMDk5MTM4ODM2Mzc4OTEyLAogICAgICAgICJzeW1ib2wiOiAiRVRDIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4xNzgyOTQ1NzM2NDM0MTA4NiwKICAgICAgICAic3ltYm9sIjogIklDUCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMTgwMTgwMTgwMTgwMTgwMTcsCiAgICAgICAgInN5bWJvbCI6ICJFT1MiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjE5Nzg1Mjc2MDczNjE5NjMxLAogICAgICAgICJzeW1ib2wiOiAiQk5CIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4yMDE4NjMzNTQwMzcyNjcwNywKICAgICAgICAic3ltYm9sIjogIkNFTE8iCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjI4NDQ4Mjc1ODYyMDY4OTY3LAogICAgICAgICJzeW1ib2wiOiAiRlRNIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4yODcyNDI4ODg0MDI2MjU4LAogICAgICAgICJzeW1ib2wiOiAiRVRIIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4zNDY3NDYwMjE0Nzc1NTIwNywKICAgICAgICAic3ltYm9sIjogIkJUQyIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuNjExMTExMTExMTExMTExMiwKICAgICAgICAic3ltYm9sIjogIlRSWCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuNjIxMTk0NjA1MDA5NjMzOSwKICAgICAgICAic3ltYm9sIjogIlhSUCIKICAgIH0KXQ==
+[
+    {
+        "mention_growth": 1.7027027027027026,
+        "symbol": "GNO"
+    },
+    {
+        "mention_growth": 0.45701357466063347,
+        "symbol": "RUNE"
+    },
+    {
+        "mention_growth": 0.29010695187165775,
+        "symbol": "SUI"
+    },
+    {
+        "mention_growth": 0.17647058823529413,
+        "symbol": "AVAX"
+    },
+    {
+        "mention_growth": 0.13333333333333333,
+        "symbol": "KAVA"
+    },
+    {
+        "mention_growth": 0.12796069516755884,
+        "symbol": "APT"
+    },
+    {
+        "mention_growth": 0.08592954591732845,
+        "symbol": "SEI"
+    },
+    {
+        "mention_growth": 0.05260490573687411,
+        "symbol": "ADA"
+    },
+    {
+        "mention_growth": 0,
+        "symbol": "$NEAR"
+    },
+    {
+        "mention_growth": -0.006036419732385392,
+        "symbol": "SOL"
+    },
+    {
+        "mention_growth": -0.012735956333863999,
+        "symbol": "ETC"
+    },
+    {
+        "mention_growth": -0.10434782608695652,
+        "symbol": "ICP"
+    },
+    {
+        "mention_growth": -0.11947626841243862,
+        "symbol": "CELO"
+    },
+    {
+        "mention_growth": -0.125,
+        "symbol": "KUJI"
+    },
+    {
+        "mention_growth": -0.17585848074921956,
+        "symbol": "EOS"
+    },
+    {
+        "mention_growth": -0.19631901840490798,
+        "symbol": "BNB"
+    },
+    {
+        "mention_growth": -0.21818181818181817,
+        "symbol": "FTM"
+    },
+    {
+        "mention_growth": -0.2792081410220764,
+        "symbol": "ETH"
+    },
+    {
+        "mention_growth": -0.30434782608695654,
+        "symbol": "BTC"
+    },
+    {
+        "mention_growth": -0.44855031267765777,
+        "symbol": "XRP"
+    },
+    {
+        "mention_growth": -0.6306306306306306,
+        "symbol": "TRX"
+    }
+]
