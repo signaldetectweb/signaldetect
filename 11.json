@@ -1,1 +1,126 @@
-WwogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuODA5MjIyNTQ2MDc3MTQ3OSwKICAgICAgICAibmFycmF0aXZlIjogIk9wdGlvbnMiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuNDUxMzY1NTk3NzAxNjczNDUsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJEZUZpIDEuMCIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogMC4zMjg5MDgyODU2Njk2MDk2LAogICAgICAgICJuYXJyYXRpdmUiOiAiREVYIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjMxMDc2MDE5ODI5NjcxMjUzLAogICAgICAgICJuYXJyYXRpdmUiOiAiUmVhbCBZaWVsZCIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogMC4yOTI3Nzk1Njg5MTg4NDIyLAogICAgICAgICJuYXJyYXRpdmUiOiAiRGVyaXZhdGl2ZXMiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuMjQ3MzQ0NzIzMDQxNTU5NjMsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJMUlQiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuMjQxNjM2MzI5ODIxNDE0NzgsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJNb25leSBNYXJrZXRzIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjE4NzQyMDgyMTA2OTYzODc1LAogICAgICAgICJuYXJyYXRpdmUiOiAiUHJpdmFjeSIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogMC4xMjU4NTYxMDY5NDM5MzY3NiwKICAgICAgICAibmFycmF0aXZlIjogIkRlRmkgMi4wIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjEyMzE0NTQ4MjU3ODg2NTY0LAogICAgICAgICJuYXJyYXRpdmUiOiAiTFNEIEwyIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjExNzQwNTA2MDU1ODk2NzAzLAogICAgICAgICJuYXJyYXRpdmUiOiAiTFNEIEwxIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjA5NDU0NDM1Mzg1OTk4NDcyLAogICAgICAgICJuYXJyYXRpdmUiOiAiUldBIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjA5MjMxMDA1MzM0ODk0NTksCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJBcHBjaGFpbiIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogMC4wODYxNjQ1MzA1ODQ2NzQ3MywKICAgICAgICAibmFycmF0aXZlIjogIkdhbWJsZS1GaSIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogMC4wODQzNjIwMTEyMTE3NzAwOSwKICAgICAgICAibmFycmF0aXZlIjogIk5GVHMiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuMDcwMzkxMzcyMDM1NDA1NjYsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJPcmFjbGVzIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjA2NTUwMzEwMDIyMDQ4NDI5LAogICAgICAgICJuYXJyYXRpdmUiOiAiQlRDIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjA1MjM5ODY5MzA4MzQ0NjU4LAogICAgICAgICJuYXJyYXRpdmUiOiAiQ0VYIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjA1MjM5ODY5MzA4MzQ0NjU1LAogICAgICAgICJuYXJyYXRpdmUiOiAiTDFzIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAwLjAzOTg4ODQ0MjQ1MDQ0MzYyLAogICAgICAgICJuYXJyYXRpdmUiOiAiQml0Y29pbiBOYXJyYXRpdmUiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuMDI5NzA0MjU5MzM2NTQzNjM3LAogICAgICAgICJuYXJyYXRpdmUiOiAiRGVTQ0kiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuMDIyNzEwNjgzMjkzMzcxMTk4LAogICAgICAgICJuYXJyYXRpdmUiOiAiRGVQSU4iCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IDAuMDA0NTA5NjM1MjY0MTY3ODc3LAogICAgICAgICJuYXJyYXRpdmUiOiAiQWNjb3VudCBBYnN0cmFjdGlvbnMiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IC0wLjAyNDU3NjQ4NjU3MDk2NTU0LAogICAgICAgICJuYXJyYXRpdmUiOiAiRnJpZW5kVGVjaCIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogLTAuMDI5NjE5OTc0NjU4MzM0MjUsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJHYW1lLUZpIgogICAgfSwKICAgIHsKICAgICAgICAibXRkX3BlcmYiOiAtMC4wMzA2MzYxNDk1NDMxMDgzMzcsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJMMnMiCiAgICB9LAogICAgewogICAgICAgICJtdGRfcGVyZiI6IC0wLjA0OTYzNjY1OTg2MDc0NDQ3LAogICAgICAgICJuYXJyYXRpdmUiOiAiV2FsbGV0cyIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogLTAuMDc2MTk1Mzk5OTYyMjYyNjEsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJJZGVudGl0eSIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogLTAuMDg0ODAwMDE5NjQ0MDE0NDQsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJNZW1lcyIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogLTAuMDkxODQ1OTI0ODg4NzA0NTIsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJBSSIKICAgIH0sCiAgICB7CiAgICAgICAgIm10ZF9wZXJmIjogLTAuMTE4Mjk3OTM1NzUwMzc2MjQsCiAgICAgICAgIm5hcnJhdGl2ZSI6ICJPcmRpbmFscyIKICAgIH0KXQ==
+[
+    {
+        "mtd_perf": 0.7948156032897981,
+        "narrative": "Options"
+    },
+    {
+        "mtd_perf": 0.40669854050282284,
+        "narrative": "DeFi 1.0"
+    },
+    {
+        "mtd_perf": 0.28693902675340466,
+        "narrative": "Real Yield"
+    },
+    {
+        "mtd_perf": 0.2855100549794848,
+        "narrative": "DEX"
+    },
+    {
+        "mtd_perf": 0.27622777025120476,
+        "narrative": "NFTs"
+    },
+    {
+        "mtd_perf": 0.25842667973074024,
+        "narrative": "Derivatives"
+    },
+    {
+        "mtd_perf": 0.23352585964708372,
+        "narrative": "Money Markets"
+    },
+    {
+        "mtd_perf": 0.18202853577520797,
+        "narrative": "Privacy"
+    },
+    {
+        "mtd_perf": 0.17913055850022427,
+        "narrative": "LRT"
+    },
+    {
+        "mtd_perf": 0.1774172564692707,
+        "narrative": "Gamble-Fi"
+    },
+    {
+        "mtd_perf": 0.1496619628617009,
+        "narrative": "DeFi 2.0"
+    },
+    {
+        "mtd_perf": 0.1270898147253252,
+        "narrative": "LSD L2"
+    },
+    {
+        "mtd_perf": 0.10500814427324488,
+        "narrative": "BTC"
+    },
+    {
+        "mtd_perf": 0.1033868752613748,
+        "narrative": "DeSCI"
+    },
+    {
+        "mtd_perf": 0.10187305313360688,
+        "narrative": "LSD L1"
+    },
+    {
+        "mtd_perf": 0.09078103864983723,
+        "narrative": "Appchain"
+    },
+    {
+        "mtd_perf": 0.0796643048507963,
+        "narrative": "RWA"
+    },
+    {
+        "mtd_perf": 0.06364196861703052,
+        "narrative": "Oracles"
+    },
+    {
+        "mtd_perf": 0.055353726512446466,
+        "narrative": "L1s"
+    },
+    {
+        "mtd_perf": 0.05535372651244645,
+        "narrative": "CEX"
+    },
+    {
+        "mtd_perf": 0.0473113966881095,
+        "narrative": "Bitcoin Narrative"
+    },
+    {
+        "mtd_perf": 0.02977705871215916,
+        "narrative": "Account Abstractions"
+    },
+    {
+        "mtd_perf": -0.009383507094596824,
+        "narrative": "DePIN"
+    },
+    {
+        "mtd_perf": -0.021845765840858258,
+        "narrative": "FriendTech"
+    },
+    {
+        "mtd_perf": -0.03083916997418054,
+        "narrative": "L2s"
+    },
+    {
+        "mtd_perf": -0.05033028219113124,
+        "narrative": "Game-Fi"
+    },
+    {
+        "mtd_perf": -0.05785409122168313,
+        "narrative": "Wallets"
+    },
+    {
+        "mtd_perf": -0.07410536339519899,
+        "narrative": "Memes"
+    },
+    {
+        "mtd_perf": -0.09071219266026816,
+        "narrative": "Identity"
+    },
+    {
+        "mtd_perf": -0.16787632993557322,
+        "narrative": "AI"
+    },
+    {
+        "mtd_perf": -0.1679575941566432,
+        "narrative": "Ordinals"
+    }
+]
