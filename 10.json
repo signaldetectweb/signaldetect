@@ -1,1 +1,50 @@
-WwogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiRGVGaSAyLjAiLAogICAgICAgICJxdWFydGVyX3BlcmYiOiAyLjEzNTQ4MTI3NzI1NjU3MywKICAgICAgICAiYXZnX3F1YXJ0ZXJfcGVyZl9hY3Jvc3NfYWxsX25hcnJhdGl2ZXMiOiAxMDMuNTQ3MzQ0MjkyMDkzMzYKICAgIH0KXQ==
+[
+    {
+        "narrative": "DeFi 2.0",
+        "quarter_perf": 2.0746450485283288
+    },
+    {
+        "narrative": "Privacy",
+        "quarter_perf": 1.8759193708880495
+    },
+    {
+        "narrative": "DeFi 1.0",
+        "quarter_perf": 1.5348228297689248
+    },
+    {
+        "narrative": "Memes",
+        "quarter_perf": 1.4197533624819776
+    },
+    {
+        "narrative": "L1s",
+        "quarter_perf": 0.9122890224336553
+    },
+    {
+        "narrative": "Real Yield",
+        "quarter_perf": 0.884122450581272
+    },
+    {
+        "narrative": "L2s",
+        "quarter_perf": 0.7141794961276936
+    },
+    {
+        "narrative": "Game-Fi",
+        "quarter_perf": 0.691005985935388
+    },
+    {
+        "narrative": "CEX",
+        "quarter_perf": 0.6878008872080176
+    },
+    {
+        "narrative": "Oracles",
+        "quarter_perf": 0.650407924284594
+    },
+    {
+        "narrative": "RWA",
+        "quarter_perf": 0.578724636087557
+    },
+    {
+        "narrative": "AI",
+        "quarter_perf": 0.47496733897288274
+    }
+]
