@@ -1,1 +1,54 @@
-WwogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuNTYyNSwKICAgICAgICAic3ltYm9sIjogIk1hbnRhIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjM1OTYwNDUxOTc3NDAxMTMsCiAgICAgICAgInN5bWJvbCI6ICJBUkIiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuMjc4Njg4NTI0NTkwMTYzOSwKICAgICAgICAic3ltYm9sIjogIk1FVElTIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjA5ODkxMDgxOTkyNTkxMzYzLAogICAgICAgICJzeW1ib2wiOiAiQmFzZSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wODQ4ODA2MzY2MDQ3NzQ1MywKICAgICAgICAic3ltYm9sIjogIlprc3luYyIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wNzQxMjI1ODYwNjIxMzI2NiwKICAgICAgICAic3ltYm9sIjogIk9QIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjA3MTAxNzI3NDQ3MjE2ODksCiAgICAgICAgInN5bWJvbCI6ICJMaW5lYSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wMTQ5OTA1Mzk5NTA1MTY2NjQsCiAgICAgICAgInN5bWJvbCI6ICJCbGFzdCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMDg3NSwKICAgICAgICAic3ltYm9sIjogIlNLTCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMTcxNTk3NjMzMTM2MDk0NjYsCiAgICAgICAgInN5bWJvbCI6ICJTdGFya25ldCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMzQwOTc0MjEyMDM0MzgzOTQsCiAgICAgICAgInN5bWJvbCI6ICJNYW50bGUiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjM2NDQwNjc3OTY2MTAxNjksCiAgICAgICAgInN5bWJvbCI6ICJTVFgiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjYzOTYxNTUyNTAwMzA0MTgsCiAgICAgICAgInN5bWJvbCI6ICJNQVRJQyIKICAgIH0KXQ==
+[
+    {
+        "mention_growth": 0.5625,
+        "symbol": "Manta"
+    },
+    {
+        "mention_growth": 0.3596045197740113,
+        "symbol": "ARB"
+    },
+    {
+        "mention_growth": 0.2786885245901639,
+        "symbol": "METIS"
+    },
+    {
+        "mention_growth": 0.09891081992591363,
+        "symbol": "Base"
+    },
+    {
+        "mention_growth": 0.08488063660477453,
+        "symbol": "Zksync"
+    },
+    {
+        "mention_growth": 0.07412258606213266,
+        "symbol": "OP"
+    },
+    {
+        "mention_growth": 0.0710172744721689,
+        "symbol": "Linea"
+    },
+    {
+        "mention_growth": 0.014990539950516664,
+        "symbol": "Blast"
+    },
+    {
+        "mention_growth": -0.0875,
+        "symbol": "SKL"
+    },
+    {
+        "mention_growth": -0.17159763313609466,
+        "symbol": "Starknet"
+    },
+    {
+        "mention_growth": -0.34097421203438394,
+        "symbol": "Mantle"
+    },
+    {
+        "mention_growth": -0.3644067796610169,
+        "symbol": "STX"
+    },
+    {
+        "mention_growth": -0.6396155250030418,
+        "symbol": "MATIC"
+    }
+]
