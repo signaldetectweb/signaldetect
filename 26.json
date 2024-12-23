@@ -1,1 +1,162 @@
-WwogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMC0xOCAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNDQxMjguODI3NjE1NTUwMDUKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTEwLTE5IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA0NDE0NC4wODYyNzM4MTAwNQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTAtMjAgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU4MDQuMzU1OTMyNTcwMDI2CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMC0yMSAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTY5OC45MDU2Mzc5MjAwMjY1CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMC0yMiAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTcwOC4zNjg0ODU1NzAwMjcKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTEwLTIzIDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA2MDU4LjAzNDk4ODQ1MDAyOAogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTAtMjQgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU4NzYuOTQwOTMyNzIwMDI4CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMC0yNSAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTY5Mi43MzM3OTM5MzAwMjkKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTEwLTI2IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA1Nzk2Ljk3MTI3MzE5MDAyOQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTAtMjcgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU4MjMuMDk0MjQxNzIwMDI5NQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTAtMjggMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU2NzkuMDAwNTU2NjIwMDMKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTEwLTI5IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA1OTI5LjUyMzc3ODMxMDAyOQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTAtMzAgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU3NDAuMzY3MDYzNzgwMDI5CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMC0zMSAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNjM1NC42NDIxNDMzOTAwMjgKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTAxIDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA2MjE3LjE5NzQ0MDQyMDAyOAogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTEtMDIgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDY4MzEuMDU2NjcyNzkwMDI4CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMS0wMyAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogODkwNy45NDE0MDU3MDAwMjUKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTA0IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA3Mjk4LjYyNTA2ODUxMDAyNwogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTEtMDUgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDY5MTMuMjY4OTE4NDMwMDI3CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMS0wNiAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNjcxNS4xMzA4NzI1NjAwMjgKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTA3IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA2MDE3LjU3NjM1NDEwMDAyOQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTEtMDggMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU1MjMuOTEwNTI3MjIwMDI5CiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMS0wOSAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTEyMi4xMTc3MzgwOTAwMjkKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTEwIDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA1NDAwLjgzNzU0NzgyMDAyOQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTEtMTEgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDUwNTMuNzE5MDQxMTMwMDMKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTEyIDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA1NTA0LjUyODE0NzQ2MDAzCiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMS0xMyAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTA2NC40NzM2NzkxOTAwMjkKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTE0IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA1MDgxLjc1NjcwMzc4MDAzCiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMS0xNSAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTA0My42OTg4MTAxNjAwMjkKICAgIH0sCiAgICB7CiAgICAgICAgImJsb2NrY2hhaW4iOiAiYml0Y29pbiIsCiAgICAgICAgImRheSI6ICIyMDI0LTExLTE2IDAwOjAwOjAwIiwKICAgICAgICAidmFsdWUiOiA1MzUxLjcwMDM2ODkzMDAyOQogICAgfSwKICAgIHsKICAgICAgICAiYmxvY2tjaGFpbiI6ICJiaXRjb2luIiwKICAgICAgICAiZGF5IjogIjIwMjQtMTEtMTcgMDA6MDA6MDAiLAogICAgICAgICJ2YWx1ZSI6IDU2ODMuMTUyNTk2MjEwMDMxCiAgICB9LAogICAgewogICAgICAgICJibG9ja2NoYWluIjogImJpdGNvaW4iLAogICAgICAgICJkYXkiOiAiMjAyNC0xMS0xOCAwMDowMDowMCIsCiAgICAgICAgInZhbHVlIjogNTYwMy43NzUwMjE5NjAwMzEKICAgIH0KXQ==
+[
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-18 00:00:00",
+        "value": 44128.82761555005
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-19 00:00:00",
+        "value": 44144.08627381005
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-20 00:00:00",
+        "value": 5804.355932570026
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-21 00:00:00",
+        "value": 5698.9056379200265
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-22 00:00:00",
+        "value": 5708.368485570027
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-23 00:00:00",
+        "value": 6058.034988450028
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-24 00:00:00",
+        "value": 5876.940932720028
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-25 00:00:00",
+        "value": 5692.733793930029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-26 00:00:00",
+        "value": 5796.971273190029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-27 00:00:00",
+        "value": 5823.0942417200295
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-28 00:00:00",
+        "value": 5679.00055662003
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-29 00:00:00",
+        "value": 5929.523778310029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-30 00:00:00",
+        "value": 5740.367063780029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-10-31 00:00:00",
+        "value": 6354.642143390028
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-01 00:00:00",
+        "value": 6217.197440420028
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-02 00:00:00",
+        "value": 6831.056672790028
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-03 00:00:00",
+        "value": 8907.941405700025
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-04 00:00:00",
+        "value": 7298.625068510027
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-05 00:00:00",
+        "value": 6913.268918430027
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-06 00:00:00",
+        "value": 6715.130872560028
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-07 00:00:00",
+        "value": 6017.576354100029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-08 00:00:00",
+        "value": 5523.910527220029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-09 00:00:00",
+        "value": 5122.117738090029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-10 00:00:00",
+        "value": 5400.837547820029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-11 00:00:00",
+        "value": 5053.71904113003
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-12 00:00:00",
+        "value": 5504.52814746003
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-13 00:00:00",
+        "value": 5064.473679190029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-14 00:00:00",
+        "value": 5081.75670378003
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-15 00:00:00",
+        "value": 5043.698810160029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-16 00:00:00",
+        "value": 5351.700368930029
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-17 00:00:00",
+        "value": 5683.152596210031
+    },
+    {
+        "blockchain": "bitcoin",
+        "day": "2024-11-18 00:00:00",
+        "value": 5603.775021960031
+    }
+]
