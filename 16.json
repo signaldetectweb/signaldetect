@@ -1,1 +1,86 @@
-WwogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDEuNzQyODU3MTQyODU3MTQyOSwKICAgICAgICAic3ltYm9sIjogIkFWQVgiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDEuMzg0NjE1Mzg0NjE1Mzg0NiwKICAgICAgICAic3ltYm9sIjogIiRORUFSIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAxLjE1NzMwMzM3MDc4NjUxNjgsCiAgICAgICAgInN5bWJvbCI6ICJGVE0iCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuNTQ1MTU0NDU5MzkyMTI3NiwKICAgICAgICAic3ltYm9sIjogIkFQVCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4yMDI0MDI1Mzg1MzEyNzgzMiwKICAgICAgICAic3ltYm9sIjogIkVUQyIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4xODI3Mjk2OTc1OTI5NTU2MywKICAgICAgICAic3ltYm9sIjogIlNPTCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4xMDcxODAzMzI3ODM2OTA2LAogICAgICAgICJzeW1ib2wiOiAiQURBIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjA1NjM1MTY2NTM3NTY3Nzc3LAogICAgICAgICJzeW1ib2wiOiAiQlRDIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjAxNCwKICAgICAgICAic3ltYm9sIjogIkJOQiIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMDIxMjA4MTA0NTI1NjU4MDIsCiAgICAgICAgInN5bWJvbCI6ICJTRUkiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjAzNzEwMTg4NTQ4MTkzMzgxLAogICAgICAgICJzeW1ib2wiOiAiRVRIIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4wNDg4Nzk4MzcwNjcyMDk3NzUsCiAgICAgICAgInN5bWJvbCI6ICJYUlAiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjA1ODgyMzUyOTQxMTc2NDcwNSwKICAgICAgICAic3ltYm9sIjogIlRSWCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMDY5MTE2NjU1NDI4MTg2MTEsCiAgICAgICAgInN5bWJvbCI6ICJTVUkiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjA4MTEzMjA3NTQ3MTY5ODExLAogICAgICAgICJzeW1ib2wiOiAiQ0VMTyIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuMjAzODgzNDk1MTQ1NjMxMDYsCiAgICAgICAgInN5bWJvbCI6ICJJQ1AiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjIzNzczOTg3MjA2ODIzMDI3LAogICAgICAgICJzeW1ib2wiOiAiRU9TIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4zMDA5NTU0MTQwMTI3Mzg4NCwKICAgICAgICAic3ltYm9sIjogIlJVTkUiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjM5MDI0MzkwMjQzOTAyNDQsCiAgICAgICAgInN5bWJvbCI6ICJLQVZBIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC40MjMwNzY5MjMwNzY5MjMxLAogICAgICAgICJzeW1ib2wiOiAiS1VKSSIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogLTAuNDgzMDA5NzA4NzM3ODY0MSwKICAgICAgICAic3ltYm9sIjogIkdOTyIKICAgIH0KXQ==
+[
+    {
+        "mention_growth": 1.7428571428571429,
+        "symbol": "AVAX"
+    },
+    {
+        "mention_growth": 1.3846153846153846,
+        "symbol": "$NEAR"
+    },
+    {
+        "mention_growth": 1.1573033707865168,
+        "symbol": "FTM"
+    },
+    {
+        "mention_growth": 0.5451544593921276,
+        "symbol": "APT"
+    },
+    {
+        "mention_growth": 0.20240253853127832,
+        "symbol": "ETC"
+    },
+    {
+        "mention_growth": 0.18272969759295563,
+        "symbol": "SOL"
+    },
+    {
+        "mention_growth": 0.1071803327836906,
+        "symbol": "ADA"
+    },
+    {
+        "mention_growth": 0.05635166537567777,
+        "symbol": "BTC"
+    },
+    {
+        "mention_growth": 0.014,
+        "symbol": "BNB"
+    },
+    {
+        "mention_growth": -0.02120810452565802,
+        "symbol": "SEI"
+    },
+    {
+        "mention_growth": -0.03710188548193381,
+        "symbol": "ETH"
+    },
+    {
+        "mention_growth": -0.048879837067209775,
+        "symbol": "XRP"
+    },
+    {
+        "mention_growth": -0.058823529411764705,
+        "symbol": "TRX"
+    },
+    {
+        "mention_growth": -0.06911665542818611,
+        "symbol": "SUI"
+    },
+    {
+        "mention_growth": -0.08113207547169811,
+        "symbol": "CELO"
+    },
+    {
+        "mention_growth": -0.20388349514563106,
+        "symbol": "ICP"
+    },
+    {
+        "mention_growth": -0.23773987206823027,
+        "symbol": "EOS"
+    },
+    {
+        "mention_growth": -0.30095541401273884,
+        "symbol": "RUNE"
+    },
+    {
+        "mention_growth": -0.3902439024390244,
+        "symbol": "KAVA"
+    },
+    {
+        "mention_growth": -0.4230769230769231,
+        "symbol": "KUJI"
+    },
+    {
+        "mention_growth": -0.4830097087378641,
+        "symbol": "GNO"
+    }
+]
