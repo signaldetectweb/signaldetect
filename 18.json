@@ -1,1 +1,54 @@
-WwogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDEuMjIwNTU0NTY2MjY4MTI1MiwKICAgICAgICAic3ltYm9sIjogIkFSQiIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMS4yLAogICAgICAgICJzeW1ib2wiOiAiU0tMIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjI0MzI0MzI0MzI0MzI0MzI2LAogICAgICAgICJzeW1ib2wiOiAiU1RYIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjE2NDkyMTQ2NTk2ODU4NjQsCiAgICAgICAgInN5bWJvbCI6ICJaa3N5bmMiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IDAuMTYwNTgzOTQxNjA1ODM5NDEsCiAgICAgICAgInN5bWJvbCI6ICJTdGFya25ldCIKICAgIH0sCiAgICB7CiAgICAgICAgIm1lbnRpb25fZ3Jvd3RoIjogMC4wODQ2NzExMTgwNTY1NDIxMiwKICAgICAgICAic3ltYm9sIjogIkJsYXN0IgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjA1Nzk3MTAxNDQ5Mjc1MzYyNCwKICAgICAgICAic3ltYm9sIjogIk1FVElTIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAwLjAyOTYxMjIwOTA3OTMyMTA0NywKICAgICAgICAic3ltYm9sIjogIk9QIgogICAgfSwKICAgIHsKICAgICAgICAibWVudGlvbl9ncm93dGgiOiAtMC4xMzUyOTQ5MDU3MTcyNTIyMiwKICAgICAgICAic3ltYm9sIjogIkJhc2UiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjE1OTQwNTgxNzAwMTYyMjc2LAogICAgICAgICJzeW1ib2wiOiAiTUFUSUMiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjI0NjI2ODY1NjcxNjQxNzksCiAgICAgICAgInN5bWJvbCI6ICJNYW50bGUiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjI1OTcyMDA2MjIwODM5ODE2LAogICAgICAgICJzeW1ib2wiOiAiTGluZWEiCiAgICB9LAogICAgewogICAgICAgICJtZW50aW9uX2dyb3d0aCI6IC0wLjU4OTM1MzYxMjE2NzMwMDQsCiAgICAgICAgInN5bWJvbCI6ICJNYW50YSIKICAgIH0KXQ==
+[
+    {
+        "mention_growth": 1.2205545662681252,
+        "symbol": "ARB"
+    },
+    {
+        "mention_growth": 1.2,
+        "symbol": "SKL"
+    },
+    {
+        "mention_growth": 0.24324324324324326,
+        "symbol": "STX"
+    },
+    {
+        "mention_growth": 0.1649214659685864,
+        "symbol": "Zksync"
+    },
+    {
+        "mention_growth": 0.16058394160583941,
+        "symbol": "Starknet"
+    },
+    {
+        "mention_growth": 0.08467111805654212,
+        "symbol": "Blast"
+    },
+    {
+        "mention_growth": 0.057971014492753624,
+        "symbol": "METIS"
+    },
+    {
+        "mention_growth": 0.029612209079321047,
+        "symbol": "OP"
+    },
+    {
+        "mention_growth": -0.13529490571725222,
+        "symbol": "Base"
+    },
+    {
+        "mention_growth": -0.15940581700162276,
+        "symbol": "MATIC"
+    },
+    {
+        "mention_growth": -0.2462686567164179,
+        "symbol": "Mantle"
+    },
+    {
+        "mention_growth": -0.25972006220839816,
+        "symbol": "Linea"
+    },
+    {
+        "mention_growth": -0.5893536121673004,
+        "symbol": "Manta"
+    }
+]
