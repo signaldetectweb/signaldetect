@@ -1,1 +1,122 @@
-WwogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiUldBIiwKICAgICAgICAieXRkX3BlcmYiOiA1LjA2ODU0MDgxOTE1NDUxMgogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIk1lbWVzIiwKICAgICAgICAieXRkX3BlcmYiOiAyLjgyMjAyNzI1NzkwOTE0OTQKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJEZXJpdmF0aXZlcyIsCiAgICAgICAgInl0ZF9wZXJmIjogMi4xOTQ2MzgyMDU3MzkwNTYKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJQcml2YWN5IiwKICAgICAgICAieXRkX3BlcmYiOiAxLjk1ODI4NDk5NjY3MTA4CiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiRGVTQ0kiLAogICAgICAgICJ5dGRfcGVyZiI6IDEuNTA0MzUzODI4MTMxOTgzNQogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIkxTRCBMMiIsCiAgICAgICAgInl0ZF9wZXJmIjogMS4zNzYyMTQzMjcxNTIwMjY2CiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiQlRDIiwKICAgICAgICAieXRkX3BlcmYiOiAxLjI3MTMxMzM3MjM1NTc1MjYKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJJZGVudGl0eSIsCiAgICAgICAgInl0ZF9wZXJmIjogMC44NTM2NzMyOTYwMTM5MDk2CiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiRGVGaSAyLjAiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuNzY2NTUwNDk0MDIwNjM3CiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiQml0Y29pbiBOYXJyYXRpdmUiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuNzYwNjE3Mzk2Nzg2MDIzCiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiRGVGaSAxLjAiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuNTQ3ODg1MTM5NTc0MjgyNAogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIkwxcyIsCiAgICAgICAgInl0ZF9wZXJmIjogMC41MTIxMDA3NjYwNjI0ODk3CiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiQUkiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuNDU2NDA2MTk3MTMyMTkxNwogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIkNFWCIsCiAgICAgICAgInl0ZF9wZXJmIjogMC40MzAxOTk0MDk5ODA2NDgzCiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiQWNjb3VudCBBYnN0cmFjdGlvbnMiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuMzMyMDk2NDM5NzkwNTAzMQogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIk5GVHMiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuMjE4MjUwOTgzNTM2NDU0NjcKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJNb25leSBNYXJrZXRzIiwKICAgICAgICAieXRkX3BlcmYiOiAwLjEwOTc5MjI4NzE2NTg5NzQyCiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiRGVQSU4iLAogICAgICAgICJ5dGRfcGVyZiI6IDAuMDk1ODk3MDk0ODI2MDI2MjkKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJERVgiLAogICAgICAgICJ5dGRfcGVyZiI6IDAuMDQ0MDMwMzM1MjA5NzY5Mjk2CiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiTFJUIiwKICAgICAgICAieXRkX3BlcmYiOiAtMC4wMTIxMjU5NzkxMjM1MzYzOTgKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJPcmFjbGVzIiwKICAgICAgICAieXRkX3BlcmYiOiAtMC4xNDA1MjMwNTc2NDQ2OTk2NgogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIkwycyIsCiAgICAgICAgInl0ZF9wZXJmIjogLTAuMTQ3MzY5NjE1NDQwNDgzOTQKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJXYWxsZXRzIiwKICAgICAgICAieXRkX3BlcmYiOiAtMC4yMDM3Nzk2NTExNDUzOTgyOAogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIkdhbWUtRmkiLAogICAgICAgICJ5dGRfcGVyZiI6IC0wLjIxNjc0NjYyNDY3Mzk1NjcyCiAgICB9LAogICAgewogICAgICAgICJuYXJyYXRpdmUiOiAiQXBwY2hhaW4vTW9kdWxhciIsCiAgICAgICAgInl0ZF9wZXJmIjogLTAuMzM1NTc5OTE0NDMyODMwNTMKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJMU0QgTDEiLAogICAgICAgICJ5dGRfcGVyZiI6IC0wLjM5NjMwODU1Mjk5NDg4ODIKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJSZWFsIFlpZWxkIiwKICAgICAgICAieXRkX3BlcmYiOiAtMC40MzY0NjcwNDgxMzkxMDQ3NQogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIkdhbWJsZS1GaSIsCiAgICAgICAgInl0ZF9wZXJmIjogLTAuNDc5NTEyNjUyMTQxNjAzNwogICAgfSwKICAgIHsKICAgICAgICAibmFycmF0aXZlIjogIk9wdGlvbnMiLAogICAgICAgICJ5dGRfcGVyZiI6IC0wLjQ4MDExODY4MzkzOTYyNjUKICAgIH0sCiAgICB7CiAgICAgICAgIm5hcnJhdGl2ZSI6ICJPcmRpbmFscyIsCiAgICAgICAgInl0ZF9wZXJmIjogLTAuNzkxMTI0OTA4Njc4NzEzCiAgICB9Cl0=
+[
+    {
+        "narrative": "RWA",
+        "ytd_perf": 5.092706472052639
+    },
+    {
+        "narrative": "Memes",
+        "ytd_perf": 2.7948207485271417
+    },
+    {
+        "narrative": "Derivatives",
+        "ytd_perf": 2.20226790085496
+    },
+    {
+        "narrative": "Privacy",
+        "ytd_perf": 2.0259413943802214
+    },
+    {
+        "narrative": "DeSCI",
+        "ytd_perf": 1.4120597993885213
+    },
+    {
+        "narrative": "LSD L2",
+        "ytd_perf": 1.3201795699028094
+    },
+    {
+        "narrative": "BTC",
+        "ytd_perf": 1.2570641814776344
+    },
+    {
+        "narrative": "Identity",
+        "ytd_perf": 0.8925504555522282
+    },
+    {
+        "narrative": "Bitcoin Narrative",
+        "ytd_perf": 0.7068979503711952
+    },
+    {
+        "narrative": "DeFi 2.0",
+        "ytd_perf": 0.6508921045538729
+    },
+    {
+        "narrative": "L1s",
+        "ytd_perf": 0.4370082380845818
+    },
+    {
+        "narrative": "DeFi 1.0",
+        "ytd_perf": 0.43021188507776464
+    },
+    {
+        "narrative": "CEX",
+        "ytd_perf": 0.41085364420339116
+    },
+    {
+        "narrative": "AI",
+        "ytd_perf": 0.37169936877749954
+    },
+    {
+        "narrative": "NFTs",
+        "ytd_perf": 0.30798067376025845
+    },
+    {
+        "narrative": "Account Abstractions",
+        "ytd_perf": 0.2854499411685102
+    },
+    {
+        "narrative": "DePIN",
+        "ytd_perf": 0.11990072936858116
+    },
+    {
+        "narrative": "DEX",
+        "ytd_perf": 0.04889946655789276
+    },
+    {
+        "narrative": "Money Markets",
+        "ytd_perf": 0.017716135371526165
+    },
+    {
+        "narrative": "LRT",
+        "ytd_perf": -0.08421137267498129
+    },
+    {
+        "narrative": "Oracles",
+        "ytd_perf": -0.12498585112354083
+    },
+    {
+        "narrative": "Appchain/Modular",
+        "ytd_perf": -0.1976907530600844
+    },
+    {
+        "narrative": "L2s",
+        "ytd_perf": -0.21605688248638766
+    },
+    {
+        "narrative": "Wallets",
+        "ytd_perf": -0.2189694170166748
+    },
+    {
+        "narrative": "Game-Fi",
+        "ytd_perf": -0.2258752515696882
+    },
+    {
+        "narrative": "Real Yield",
+        "ytd_perf": -0.3950974574420814
+    },
+    {
+        "narrative": "LSD L1",
+        "ytd_perf": -0.4104002155506481
+    },
+    {
+        "narrative": "Options",
+        "ytd_perf": -0.48228589168649233
+    },
+    {
+        "narrative": "Gamble-Fi",
+        "ytd_perf": -0.4952970531428651
+    },
+    {
+        "narrative": "Ordinals",
+        "ytd_perf": -0.7940052988478515
+    }
+]
